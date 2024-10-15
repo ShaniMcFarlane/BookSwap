@@ -7,5 +7,6 @@ class User < ApplicationRecord
   has_many :requests, dependent: :destroy
   has_many :swaps, through: :requests
 
-  #validates :name, :location, presence: true
+  validates :first_name, :last_name, :location, presence: true
+
 end
