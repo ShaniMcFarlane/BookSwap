@@ -6,5 +6,6 @@ class User < ApplicationRecord
   has_many :books, dependent: :destroy
   has_many :requests, dependent: :destroy
   has_many :swaps, through: :requests
-  # validates :name, :location, presence: true
+
+  #validates :name, :location, presence: true
 end
