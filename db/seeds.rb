@@ -10,9 +10,26 @@
 Book.destroy_all
 User.destroy_all
 
-
-
-
+user1 = User.create(first_name: "Ava", last_name: "Taylor", location: "Hackney", email: "ava.taylor@yahoo.com", password: '123123', password_confirmation: '123123')
+user2 = User.create(first_name: "Liam", last_name: "Smith", location: "Camden", email: "liam.smith@gmail.com", password: '123123', password_confirmation: '123123')
+user3 = User.create(first_name: "Olivia", last_name: "Brown", location: "Islington", email: "olivia.brown@hotmail.com", password: '123123', password_confirmation: '123123')
+user4 = User.create(first_name: "Noah", last_name: "Johnson", location: "Westminster", email: "noah.johnson@outlook.com", password: '123123', password_confirmation: '123123')
+user5 = User.create(first_name: "Sophia", last_name: "Williams", location: "Kensington", email: "sophia.williams@icloud.com", password: '123123', password_confirmation: '123123')
+user6 = User.create(first_name: "James", last_name: "Jones", location: "Brixton", email: "james.jones@yahoo.com", password: '123123', password_confirmation: '123123')
+user7 = User.create(first_name: "Emily", last_name: "Davis", location: "Clapham", email: "emily.davis@gmail.com", password: '123123', password_confirmation: '123123')
+user8 = User.create(first_name: "Benjamin", last_name: "Miller", location: "Shoreditch", email: "benjamin.miller@hotmail.com", password: '123123', password_confirmation: '123123')
+user9 = User.create(first_name: "Charlotte", last_name: "Wilson", location: "Chelsea", email: "charlotte.wilson@outlook.com", password: '123123', password_confirmation: '123123')
+user10 = User.create(first_name: "Henry", last_name: "Moore", location: "Greenwich", email: "henry.moore@icloud.com", password: '123123', password_confirmation: '123123')
+user11 = User.create(first_name: "Amelia", last_name: "Taylor", location: "Hackney", email: "amelia.taylor@gmail.com", password: '123123', password_confirmation: '123123')
+user12 = User.create(first_name: "Jack", last_name: "Thomas", location: "Bermondsey", email: "jack.thomas@yahoo.com", password: '123123', password_confirmation: '123123')
+user13 = User.create(first_name: "Isabella", last_name: "White", location: "Hammersmith", email: "isabella.white@hotmail.com", password: '123123', password_confirmation: '123123')
+user14 = User.create(first_name: "Lucas", last_name: "Clark", location: "Tower Hamlets", email: "lucas.clark@outlook.com", password: '123123', password_confirmation: '123123')
+user15 = User.create(first_name: "Mia", last_name: "Harris", location: "Richmond", email: "mia.harris@gmail.com", password: '123123', password_confirmation: '123123')
+user16 = User.create(first_name: "Alexander", last_name: "Lewis", location: "Fulham", email: "alexander.lewis@icloud.com", password: '123123', password_confirmation: '123123')
+user17 = User.create(first_name: "Grace", last_name: "Walker", location: "Wandsworth", email: "grace.walker@yahoo.com", password: '123123', password_confirmation: '123123')
+user18 = User.create(first_name: "Ethan", last_name: "Scott", location: "Paddington", email: "ethan.scott@hotmail.com", password: '123123', password_confirmation: '123123')
+user19 = User.create(first_name: "Harper", last_name: "Green", location: "Lewisham", email: "harper.green@outlook.com", password: '123123', password_confirmation: '123123')
+user20 = User.create(first_name: "Daniel", last_name: "Baker", location: "Croydon", email: "daniel.baker@gmail.com", password: '123123', password_confirmation: '123123')
 
 book1 = Book.new(title: "The Great Gatsby", author: "F. Scott Fitzgerald", genre: "Classic", publish_date: "1925", user: user1)
 book2 = Book.new(title: "To Kill a Mockingbird", author: "Harper Lee", genre: "Classic", publish_date: "1960", user: user2)
