@@ -11,7 +11,6 @@ class UsersController < ApplicationController
     @requests = @user.requests
     @requests_made = Request.where(user: @user)
     @requests_received = Request.where(book: @user.books)
-    render :show
   end
 
   def show
