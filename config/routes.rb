@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get "request/index"
+  get "request/show"
+  get "request/create"
+  get "request/destroy"
   devise_for :users
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -13,5 +17,13 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  get "books", to: "books#index"
+  resources :users, only: [:show]
+
+  get '/profile', to: 'users#profile', as: :profile
+
+  resources :books, only: [:index, :show, :create, :update, :destroy] do
+    resources :requests, only: [:create]
+  end
+  resources :requests, only: [:index, :update]
+
 end
