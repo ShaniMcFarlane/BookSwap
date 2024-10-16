@@ -1,16 +1,23 @@
 .book-card {
   overflow: hidden;
-  height: 150px;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
   align-items: center;
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 150px;
+  border: 1px solid #C5705D;
+  border-radius: 25px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
 .book-card img {
-  height: 100%;
-  width: 120px;
+  height: 60%;
+  width: 100px;
   object-fit: cover;
+  margin-right: 16px;
+  margin-left: 16px;
 }
 
 .book-card h2 {
