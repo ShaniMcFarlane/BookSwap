@@ -4,6 +4,7 @@
   align-items: center;
   flex-direction: column;
   padding-top: 20px;
+  color: #8D493A;
 }
 
 .profile-info {
@@ -15,7 +16,7 @@
   margin-bottom: 20px;
   width: 250px;
   height: 100px;
-  border: 1px solid #D0B8A8;
+  border: 1px solid #C5705D;
   border-radius: 25px;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
 }
@@ -24,9 +25,33 @@
   margin: 0;
   padding: 0;
 }
+
 .profile-btn {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 20px;
+}
+
+.btn.btn-outline-info {
+  color: #C5705D;
+  border: #C5705D, solid;
+  border-radius: 20px;
+}
+
+.library-container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  // width: 250px;
+  // height: 100px;
+  border: 1px solid #C5705D;
+  border-radius: 25px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  color: #8D493A;
+}
+
+.library-info {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
 }

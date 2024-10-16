@@ -9,7 +9,22 @@
     </div>
   </div>
   <div class="profile-btn">
-    <%= button_to "Add Book", "#", method: :get, class: "btn btn-primary" %>
-    <%= button_to "Requests", "#", method: :get, class: "btn btn-primary" %>
+    <%= button_to "Requests", "#", method: :get, class: "btn btn-outline-info btn-sm" %>
+    <%= button_to "Messages", "#", method: :get, class: "btn btn-outline-info btn-sm" %>
+  </div>
+  <div class="library-container">
+    <div class="library-info">
+      <h3>My Library</h3>
+      <%= button_to "Add Book", "#", method: :get, class: "btn btn-outline-info btn-sm" %>
+    </div>
+    <div class="books-container">
+      <% @user.books.each do |book| %>
+        <div class="book-card">
+          <%= image_tag book.image_url, alt: book.title, class: "book-cover" %>
+          <h3><%= book.title %></h3>
+          <p><%= book.author %></p>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
