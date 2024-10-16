@@ -1,38 +1,63 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-bottom">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
-    <% end %>
+    <ul class="navbar-nav">
+      <% if user_signed_in? %>
+        <!-- Home Button -->
+        <li class="nav-item active">
+          <%= link_to "#", class: "nav-link text-center" do %>
+            <i class="fas fa-home nav-icon"></i>
+            <br>Home
+          <% end %>
+        </li>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+        <!-- Messages Button -->
+        <li class="nav-item">
+          <%= link_to "#", class: "nav-link text-center" do %>
+            <i class="fas fa-comment-dots nav-icon"></i>
+            <br>Messages
+          <% end %>
+        </li>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item dropdown">
-          <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
-          </a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-            </div>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
-        <% end %>
-      </ul>
+        <!-- Profile Button -->
+        <li class="nav-item">
+          <%= link_to "#", class: "nav-link text-center" do %>
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "Profile" %>
+            <br>Profile
+          <% end %>
+        </li>
+
+      <% else %>
+        <!-- Login Button if not signed in -->
+        <li class="nav-item">
+          <%= link_to new_user_session_path, class: "nav-link text-center" do %>
+            <i class="fas fa-sign-in-alt nav-icon"></i>
+            <br>Login
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<%# <main>
+  <div class="navigation-search-container">
+    <i class="fa fa-search"></i>
+    <input class="search-field" type="text" placeholder="Search">
+    <div class="search-container">
+      <div class="search-container-box">
+        <div class="search-results">
+          <!-- Search results will go here -->
+        </div>
+      </div>
+    </div>
+  </div> %>
+<%# </main> %>
+
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top">
+  <div class="container-banner-logo">
+    <div class="top-banner">
+      <h1>BookSwap</h1>
+      <%# <%= image_tag("bookswap1.png", style: "width: 50px; height: 50px", alt: "BookSwap")  %>
     </div>
   </div>
 </div>

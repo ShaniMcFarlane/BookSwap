@@ -1,12 +1,107 @@
-.navbar-lewagon {
+// .navbar-lewagon {
+//   justify-content: space-between;
+//   background: white;
+// }
+
+// .navbar-lewagon .navbar-collapse {
+//   flex-grow: 0;
+// }
+
+// .navbar-lewagon .navbar-brand img {
+//   width: 40px;
+// }
+.navbar.fixed-bottom {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem 0;
+}
+
+.navbar-nav {
+  display: flex;
   justify-content: space-between;
-  background: white;
+  flex-direction: row;
+  width: 100%;
+  padding: 0 30px;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.nav-link {
+  font-size: 20px;
+  color: #555;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.nav-icon {
+  font-size: 1.5rem;
+  color: #555;
+}
+
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.navigation-search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-color: white;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.search-field {
+  width: 300px;
+  padding: 0.5rem;
+  border: none;
+  background-color: #f0f0f0;
+  border-radius: 18px;
+  margin-left: 10px;
+}
+
+.search-field:focus {
+  outline: none;
+}
+
+.notification-bubble-wrapper {
+  position: relative;
+}
+
+.notification-bubble {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: red;
+  border-radius: 50%;
+  padding: 2px 5px;
+  color: white;
+  font-size: 0.7rem;
+}
+
+.container-banner-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  padding-top: 10px;
+  background-color: white;
+  // box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  width: 100%;
+
+}
+
+.navbar.fixed-top {
+  position: fixed;
+  width: 100%;
+  background-color: white;
+  // box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+  color: grey;
+
+}
+
+.top-banner {
+  display: flex;
+  align-items: center;
 }
