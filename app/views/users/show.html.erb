@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="user-info-container">
+    <div class="profile-picture">
+      <%= image_tag "profile-user.png", alt: "Default Profile Picture", class: "default-profile-icon" %>
+    </div>
+    <div class="profile-info">
+      <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+      <p><%= @user.location %></p>
+      <%= button_to "Message", "#", method: :get, class: "btn btn-outline-info btn-sm" %>
+    </div>
+  </div>
+
+  <div class="library-container">
+    <div class="library-info">
+      <h3><%= @user.first_name %>'s Library</h3>
+    </div>
+    <div class="books-container">
+      <% if @user.books.any? %>
+        <% @user.books.each do |book| %>
+          <div class="book-card">
+            <%= image_tag book.image_url, alt: book.title, class: "book-cover" if book.image_url.present? %>
+            <h3><%= book.title %></h3>
+            <p><%= book.author %></p>
+          </div>
+        <% end %>
+      <% else %>
+        <p><%= @user.first_name %> hasn't added any books to their library yet.</p>
+      <% end %>
+    </div>
+  </div>
+</div>

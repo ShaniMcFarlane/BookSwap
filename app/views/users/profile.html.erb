@@ -18,12 +18,16 @@
       <%= button_to "Add Book", "#", method: :get, class: "btn btn-outline-info btn-sm" %>
     </div>
     <div class="books-container">
-      <% @user.books.each do |book| %>
-        <div class="book-card">
-          <%= image_tag book.image_url, alt: book.title, class: "book-cover" %>
-          <h3><%= book.title %></h3>
-          <p><%= book.author %></p>
-        </div>
+       <% if @user.books.any? %>
+        <% @user.books.each do |book| %>
+          <div class="book-card">
+            <%= image_tag book.image_url, alt: book.title, class: "book-cover" if book.image_url.present? %>
+            <h3><%= book.title %></h3>
+            <p><%= book.author %></p>
+          </div>
+        <% end %>
+      <% else %>
+        <p>You don't have any books in your library yet.</p>
       <% end %>
     </div>
   </div>
