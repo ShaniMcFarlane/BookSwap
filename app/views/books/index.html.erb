@@ -1,3 +1,4 @@
+
 <% @books.each do |book| %>
   <div class="book-card">
     <%= cl_image_tag book.photo.key, alt: "Card image cap", class: "card-img-top" %>
@@ -9,3 +10,4 @@
     </div>
   </div>
 <% end %>
+
