@@ -1,8 +1,12 @@
-<div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="https://freeiconshop.com/wp-content/uploads/edd/book-flat.png" alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">Book name</h5>
-    <p class="card-text">Book description <strong>here</strong></p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+<% @books.each do |book| %>
+  <div class="book-card">
+    <img class="card-img-top" src="https://freeiconshop.com/wp-content/uploads/edd/book-flat.png" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Book Title</h5>
+            <p><strong>Author:</strong> <%= book.author %></p>
+            <p><strong>Genre:</strong><%= book.genre %></p>
+            <p><strong>Publish Date:</strong> <%= book.publish_date %></p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
   </div>
-</div>
+<% end %>
