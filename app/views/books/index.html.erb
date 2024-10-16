@@ -1,1 +1,16 @@
+<<<<<<< HEAD
 
+=======
+<% @books.each do |book| %>
+  <div class="book-card">
+    <img class="card-img-top" src="https://freeiconshop.com/wp-content/uploads/edd/book-flat.png" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Book Title</h5>
+            <p><strong>Author:</strong> <%= book.author %></p>
+            <p><strong>Genre:</strong><%= book.genre %></p>
+            <p><strong>Publish Date:</strong> <%= book.publish_date %></p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+<% end %>
+>>>>>>> 2b5e7864b79fa803de79cb8dd03b77804bb2c712
