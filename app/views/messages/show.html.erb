@@ -1,0 +1,17 @@
+<h1>Messages</h1>
+
+<h2>Swap with <%= @swap.request.user.name %></h2>
+<div class="messages-list">
+  <% @messages.each do |message| %>
+     <div class="message">
+      <p><%= message.content %></p>
+    </div>
+  <% end %>
+</div>
+
+<% if @swap.confirmed? %>
+  <%= simple_form_for (@swap, @message) do |f| %>
+    <%= f.input :content %>
+    <%= f.submit "Send", class: "btn btn-primary" %>
+  <% end %>
+<% end %>

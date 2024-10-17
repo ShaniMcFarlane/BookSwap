@@ -1,0 +1,17 @@
+<h1>My requests</h1>
+
+<% if @requests.any? %>
+  <ul class="requests-list">
+    <% @requests.each do |request| %>
+      <li class="request-item">
+        <p><strong>Book:</strong> <%= request.book.title %></p>
+        <%= link_to "View Details", book_path(request.book), class: "btn btn-primary" %>
+        <%= link_to 'Cancel Request', request_path(request), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+ %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>You have no requests</p>
+  <%= link_to "Request a book", books_path, class: "btn btn-primary" %>
+<% end %>
