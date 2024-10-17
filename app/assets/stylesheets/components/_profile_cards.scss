@@ -4,6 +4,7 @@
   align-items: center;
   flex-direction: column;
   padding-top: 20px;
+  margin-top: 70px;
 }
 
 .profile-info {
@@ -60,4 +61,10 @@
   align-items: center;
   flex-direction: column;
   text-align: center;
+  margin-bottom: 70px;
+}
+
+.profile-icon {
+  border-radius: 50%;
+  width: 56px;
 }

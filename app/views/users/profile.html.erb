@@ -1,7 +1,7 @@
  <div class="container">
   <div class="user-info-container">
     <div class="profile-picture">
-      <%= image_tag "profile-user.png", alt: "Default Profile Picture", class: "default-profile-icon" %>
+      <%= cl_image_tag @user.photo.key, alt: "Default Profile Picture", class: "profile-icon" %>
     </div>
     <div class="profile-info">
       <h1><%= @user.first_name %> <%= @user.last_name %></h1>
@@ -20,9 +20,11 @@
     </div>
     <div class="books-container">
        <% if @user.books.any? %>
-        <% @user.books.each do |book| %>
+        <% @books.each do |book| %>
           <div class="book-card">
-            <%# <%= image_tag book.image_url, alt: book.title, class: "book-cover" if book.image_url.present? %>
+
+            <%= cl_image_tag book.photo.key, alt: book.title, class: "book-cover" if book.photo.key.present? %>
+
             <h3><%= book.title %></h3>
             <p><%= book.author %></p>
             <%= link_to 'Delete', profile_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
