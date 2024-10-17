@@ -1,0 +1,22 @@
+<h1>Your messages</h1>
+
+  <ul>
+    <% @swaps.each do |swap| %>
+      <% if swap.confirmed? %>
+        <li>
+          <h2>Swap with <%= swap.request.first_name %> <%= swap.request.last_name %></h2>
+          <p>Book: <%= swap.book.title %> by <%= swap.book.author %></p>
+          <%= link_to "View messages", swap_messages_path(swap), class: "btn btn-primary" %>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+
+  <div class="messages-list">
+    <%= simple_form_for(@swap, Message.new) do |f| %>
+    <% @messages.each do |message| %>
+      <%= f.input :content, placeholder: "Let's swap books..", required: true %>
+      <%= f.submit "Send", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>

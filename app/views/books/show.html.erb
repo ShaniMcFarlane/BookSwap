@@ -1,30 +1,27 @@
-
-#dummy image
-#create container of info and link to user icon author, publish date, genre
-#add link to edit and delete
-#add link to back to index
-
-<h1>Show Page</h1>
-
+<h1><%= @book.title %></h1>
 <div class="container-for-book-details">
-    <div class="book-details">
-      <!-- Dummy image for the book cover -->
-      <img src="https://via.madeupwebsite.com" alt="book cover" class="book-details-image">
+  <div class="book-details">
+    <img src="https://via.placeholder.com/150" alt="book cover" class="book-details-image">
 
-      <!-- Book information: title, author, published date, genre -->
-      <div class="book-details-info">
-        <h1><%= @book.title %></h1>
-        <p>By: <%= @book.author %></p>
-        <p>Published: <%= @book.publish_date %></p>
-        <p>Genre: <%= @book.genre %></p>
-      </div>
-
-      <!-- Action links: Edit, Delete, Back to Index -->
-      <div class="book-details-actions">
-      <% if current_user == @book.user %>
-        <%= link_to "Delete", book_path(@book), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-flat" %>
-        <% end %>
-        <%= link_to "Back to Index", books_path, class: "btn btn-flat" %>
-      </div>
+   <div class="book-details-info">
+      <h1><%= @book.title %></h1>
+      <p>By: <%= @book.author %></p>
+      <p>Published: <%= @book.publish_date %></p>
+      <p>Genre: <%= @book.genre %></p>
+      <%= button_to "Swap Book", book_requests_path(@book), method: :post, params: { request: { book_id: @book.id } }, class: "btn btn-outline-info" %>
     </div>
+  </div>
+
+  <h2>Reviews</h2>
+  <% @book.reviews.each do |review| %>
+    <div class="review">
+      <p><strong><%= review.user.name %>:</strong> <%= review.comment %></p>
+    </div>
+  <% end %>
+
+  <%= simple_form_for [@book, @review] do |f| %>
+    <%= f.input :comment, placeholder: "Write a review...", required: true %>
+    <%= f.submit "Submit", class: "btn btn-primary" %>
+  <% end %>
+
 </div>
