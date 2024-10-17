@@ -6,11 +6,12 @@
     <div class="profile-info">
       <h1><%= @user.first_name %> <%= @user.last_name %></h1>
       <p><%= @user.location %></p>
+       <p>Books Swapped: <%= @user.swapped_books_count %></p>
     </div>
   </div>
   <div class="profile-btn">
-    <%= button_to "Requests", "#", method: :get, class: "btn btn-outline-info btn-sm" %>
-    <%= button_to "Messages", "#", method: :get, class: "btn btn-outline-info btn-sm" %>
+    <%= button_to "Requests", requests_path, method: :get, class: "btn btn-outline-info btn-sm" %>
+    <%= button_to "Messages", swap_messages_path(current_user), method: :get, class: "btn btn-outline-info btn-sm" %>
   </div>
   <div class="library-container">
     <div class="library-info">
@@ -21,9 +22,10 @@
        <% if @user.books.any? %>
         <% @user.books.each do |book| %>
           <div class="book-card">
-            <%= image_tag book.image_url, alt: book.title, class: "book-cover" if book.image_url.present? %>
+            <%# <%= image_tag book.image_url, alt: book.title, class: "book-cover" if book.image_url.present? %>
             <h3><%= book.title %></h3>
             <p><%= book.author %></p>
+            <%= link_to 'Delete', profile_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
           </div>
         <% end %>
       <% else %>
