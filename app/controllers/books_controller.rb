@@ -2,17 +2,18 @@ class BooksController < ApplicationController
   def index
     @books = Book.all
     if params[:query].present?
-    @books = Book.search_books(params[:query])
+      @books = Book.search_books(params[:query])
     else
-    @books = Book.all
+      @books = Book.all
     end
   end
 
   def show
     @book = Book.find(params[:id])
-    @user = @book.user
-    @book = Book.includes(:reviews).find(params[:id])
     @review = Review.new
+    @reviews = @book.reviews.includes(:user)
+    @book = Book.includes(:reviews).find(params[:id])
+    @user = @book.user
   end
 
   def new

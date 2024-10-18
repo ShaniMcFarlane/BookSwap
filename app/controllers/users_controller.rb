@@ -6,9 +6,13 @@ class UsersController < ApplicationController
   end
 
   def profile
-    @user = current_user
+    if params[:id].present?
+      @user = User.find(params[:id])
+    else
+      @user = current_user
+    end
+
     @books = @user.books
-    @requests = @user.requests
     @requests_made = Request.where(user: @user)
     @requests_received = Request.where(book: @user.books)
   end

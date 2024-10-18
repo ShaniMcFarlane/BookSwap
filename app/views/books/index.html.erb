@@ -38,7 +38,7 @@
 
   <% @books.each do |book| %>
   <div class="book-card">
-    <%# <%= cl_image_tag book.photo.key, alt: "Card image cap", class: "card-img-top" %>
+    <%= cl_image_tag book.photo.key, alt: "Card image cap", class: "card-img-top" %>
     <div class="card-body">
       <h5 class="card-title"><%= book.title %></h5>
             <p><strong>Author:</strong> <%= book.author %></p>
@@ -51,5 +51,3 @@
 
 
 </div>
-
-

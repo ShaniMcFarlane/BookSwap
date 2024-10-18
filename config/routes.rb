@@ -23,13 +23,14 @@ Rails.application.routes.draw do
 
   resources :books, only: [:index, :show, :create, :update, :destroy] do
     resources :requests, only: [:create]
-    resources :reviews, only: [:create]
+    resources :reviews, only: [:create, :show]
+
   end
 
   resources :requests, only: [:index, :show, :update, :destroy]
 
   resources :swaps, only: [:index, :show] do
-    resources :reviews, only: [:create]
+    resources :reviews, only: [:create, :show]
     resources :messages, only: [:index, :create]
   end
   resources :messages, only: [:destroy]
