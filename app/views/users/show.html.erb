@@ -24,10 +24,11 @@
   <%# checking to see if there are any request between two users .any? %>
   <%# check if there are any requests .any? %>
               <% if current_user.requests_as_owner.where(user: @user).any? %>
-              <%= button_to "Swap", book_requests_path(book), method: :post, params: { request: { book_id: book.id } }, class: "btn btn-outline-info" %>
+                <%= button_to "Swap", book_requests_path(book), method: :post, params: { request: { book_id: book.id } }, class: "btn btn-outline-info" %>
               <% else %>
-             <%= button_to "request", book_requests_path(book), method: :post, params: { request: { book_id: book.id } }, class: "btn btn-outline-info" %>
+                <%= button_to "request", book_requests_path(book), method: :post, params: { request: { book_id: book.id } }, class: "btn btn-outline-info" %>
               <% end %>
+
 
 
           </div>

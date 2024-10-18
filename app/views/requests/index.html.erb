@@ -24,9 +24,17 @@
       <h3><%= request.book.title %></h3>
       <p>Requested by: <%= request.user.first_name %></p>
       <p>Status: <%= request.swap.present? ? 'Swapped' : 'Pending' %></p>
+
+      <%# <% if request.swap.present? %>
+       <%# <p>Not swapped yet</p> %>
+        <%# <%= button_to "Swapped", "#", class: "btn btn-success" %>
+      <%# <% else %>
+
+      <%# <% end %>
+
       <%# <%= cl_image_tag book.photo.key, alt: book.title, class: "book-cover" if book.photo.key.present? %>
       <%= link_to "Swap", user_path(request.user), class: "btn btn-success" %>
-      <%= link_to "Decline", "#", method: :delete, class: "btn btn-danger" %>
+      <%= link_to "Decline", request_path(request), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger" %>
     </div>
   <% end %>
 </div>
