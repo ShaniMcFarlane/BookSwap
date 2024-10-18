@@ -16,8 +16,12 @@
       </p>
     <% end %>
 
-  <%= simple_form_for (@swap, Message.new) do |f| %>
+  <%= simple_form_for [@swap, Message.new] do |f| %>
     <%= f.input :content, placeholder: "Let's swap books...", required: true %>
     <%= f.submit "Send", class: "btn btn-primary" %>
   <% end %>
 <% end %>
+
+<%# chaneg to show page -  %>
+<%# # swap where current user is me %>
+<%# # swap where current user is the request %>

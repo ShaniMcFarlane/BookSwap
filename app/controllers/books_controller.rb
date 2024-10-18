@@ -5,6 +5,7 @@ class BooksController < ApplicationController
       @books = Book.search_books(params[:query])
     else
       @books = Book.all
+
     end
     # @books = Book.all
     @users = User.all
@@ -13,14 +14,16 @@ class BooksController < ApplicationController
         lat: user.latitude,
         lng: user.longitude
       }
+      
     end
   end
 
   def show
     @book = Book.find(params[:id])
-    @user = @book.user
-    @book = Book.includes(:reviews).find(params[:id])
     @review = Review.new
+    @reviews = @book.reviews.includes(:user)
+    @book = Book.includes(:reviews).find(params[:id])
+    @user = @book.user
   end
 
   def new

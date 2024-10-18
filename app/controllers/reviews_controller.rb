@@ -1,9 +1,8 @@
 class ReviewsController < ApplicationController
-  before_action :set_swap, only: [:create, :index, :show]
+  # before_action :set_swap, only: %i[create index show]
 
   def index
     @reviews = review.all
-    @reviews = @swap.reviews.includes(:user)
   end
 
   def show
@@ -11,51 +10,42 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    if params[:book_id]
-      @book = Book.find(params[:book_id])
-      @review = @book.reviews.new(review_params)
-      @review.user = current_user
+    @review = Review.new(review_params)
+    @book = Book.find(params[:book_id])
+    @review = @book.reviews.new(review_params)
+    @review.user = current_user
 
-      if @review.save
-        redirect_to @book, notice: "Review was successfully created."
-      else
-        redirect_to @book, alert: "There was an error creating your book review."
-      end
-    elsif params[:swap_id]
-      @swap = Swap.find(params[:swap_id])
-      if @swap.confirmed?
-        @review = @swap.reviews.new(review_params)
-        @review.user = current_user
-
-        if @review.save
-          redirect_to swap_path(@swap), notice: 'Review for swap was successfully created.'
-        else
-          redirect_to swap_path(@swap), alert: 'There was an error creating your swap review.'
-        end
-      else
-        redirect_to swap_path(@swap), alert: 'Confirm swap first.'
-      end
+    if @review.save
+      redirect_to book_path(@book), notice: "Review was successfully created."
     else
-      redirect_to root_path, alert: 'Invalid review request.'
+      redirect_to book_path(@book), alert: "Review was not created."
     end
   end
-  end
 
-  def update
-    @review = Review.find(params[:id])
-    if @review.update(review_params)
-      redirect_to swap_path(@review.swap), notice: 'Review updated.'
+  # def update
+  #   @review = Review.find(params[:id])
+  #   if @review.update(review_params)
+  #     redirect_to swap_path(@review.swap), notice: 'Review updated.'
+  #   else
+  #     redirect_to swap_path(@review.swap), alert: 'Review not updated.'
+  #   end
+  # end
+
+  def destroy
+    @book = Book.find(params[:book_id])
+    @review = @book.reviews.find(params[:id])
+
+    if @review.user == current_user
+      @review.destroy
+      redirect_to book_path(@review.book), notice: "Review was successfully deleted."
     else
-      redirect_to swap_path(@review.swap), alert: 'Review not updated.'
+      redirect_to book_path(@review.book), alert: "Review was not deleted."
     end
   end
 
   private
 
-  def set_swap
-    @swap = Swap.find(params[:swap_id])
-  end
-
   def review_params
-    params.require(:review).permit(:comment)
+    params.require(:review).permit(:comment, :rating)
   end
+end

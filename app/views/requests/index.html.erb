@@ -1,13 +1,13 @@
 <h1>My requests</h1>
-
+<p>I want</p>
 <% if @requests.any? %>
   <ul class="requests-list">
     <% @requests.each do |request| %>
       <li class="request-item">
         <p><strong>Book:</strong> <%= request.book.title %></p>
+        <%# <%= cl_image_tag @book.photo.key, alt: @book.title, class: "book-cover" if @book.photo.key.present? %>
         <%= link_to "View Details", book_path(request.book), class: "btn btn-primary" %>
-        <%= link_to 'Cancel Request', request_path(request), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
- %>
+        <%= link_to 'Cancel Request', request_path(request), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
       </li>
     <% end %>
   </ul>
@@ -15,3 +15,26 @@
   <p>You have no requests</p>
   <%= link_to "Request a book", books_path, class: "btn btn-primary" %>
 <% end %>
+
+
+<h1>Requests Made to Me</h1>
+<div class="requested-books">
+  <% @requested_books.each do |request| %>
+    <div class="request-item">
+      <h3><%= request.book.title %></h3>
+      <p>Requested by: <%= request.user.first_name %></p>
+      <p>Status: <%= request.swap.present? ? 'Swapped' : 'Pending' %></p>
+
+      <%# <% if request.swap.present? %>
+       <%# <p>Not swapped yet</p> %>
+        <%# <%= button_to "Swapped", "#", class: "btn btn-success" %>
+      <%# <% else %>
+
+      <%# <% end %>
+
+      <%# <%= cl_image_tag book.photo.key, alt: book.title, class: "book-cover" if book.photo.key.present? %>
+      <%= link_to "Swap", user_path(request.user), class: "btn btn-success" %>
+      <%= link_to "Decline", request_path(request), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger" %>
+    </div>
+  <% end %>
+</div>
