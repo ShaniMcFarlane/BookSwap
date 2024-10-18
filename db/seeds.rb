@@ -13,83 +13,83 @@ require "open-uri"
 Book.destroy_all
 User.destroy_all
 
-user1 = User.new(first_name: "Ava", last_name: "Taylor", location: "Hackney", email: "ava.taylor@yahoo.com", password: '123123', password_confirmation: '123123')
+user1 = User.new(first_name: "Ava", last_name: "Taylor", location: "Hackney, London", email: "ava.taylor@yahoo.com", password: '123123', password_confirmation: '123123')
 file1 = URI.parse("https://st3.depositphotos.com/1011434/13157/i/450/depositphotos_131572502-stock-photo-happy-woman-smiling.jpg").open
 user1.photo.attach(io: file1, filename: "ava.jpg", content_type: "image/jpg")
 user1.save
-user2 = User.new(first_name: "Liam", last_name: "Smith", location: "Camden", email: "liam.smith@gmail.com", password: '123123', password_confirmation: '123123')
+user2 = User.new(first_name: "Liam", last_name: "Smith", location: "Camden, London", email: "liam.smith@gmail.com", password: '123123', password_confirmation: '123123')
 file2 = URI.parse("https://img.freepik.com/free-photo/confident-ethnic-man-with-curly-hair_23-2148203568.jpg").open
 user2.photo.attach(io: file2, filename: "lim.jpg", content_type: "image/jpg")
 user2.save
-user3 = User.new(first_name: "Olivia", last_name: "Brown", location: "Islington", email: "olivia.brown@hotmail.com", password: '123123', password_confirmation: '123123')
+user3 = User.new(first_name: "Olivia", last_name: "Brown", location: "Islington, London", email: "olivia.brown@hotmail.com", password: '123123', password_confirmation: '123123')
 file3 = URI.parse("https://images.pond5.com/headshot-portrait-smiling-young-indian-photo-158867003_iconl_nowm.jpeg").open
 user3.photo.attach(io: file3, filename: "olivia.jpeg", content_type: "image/jpeg")
 user3.save
-user4 = User.new(first_name: "Noah", last_name: "Johnson", location: "Westminster", email: "noah.johnson@outlook.com", password: '123123', password_confirmation: '123123')
+user4 = User.new(first_name: "Noah", last_name: "Johnson", location: "Westminster, London", email: "noah.johnson@outlook.com", password: '123123', password_confirmation: '123123')
 file4 = URI.parse("https://thumbs.dreamstime.com/b/headshot-african-american-male-glasses-posing-studio-portrait-smiling-man-wearing-casual-clothes-look-camera-image-153874435.jpg").open
 user4.photo.attach(io: file4, filename: "noah.jpg", content_type: "image/jpg")
 user4.save
-user5 = User.new(first_name: "Sophia", last_name: "Williams", location: "Kensington", email: "sophia.williams@icloud.com", password: '123123', password_confirmation: '123123')
+user5 = User.new(first_name: "Sophia", last_name: "Williams", location: "Kensington, London", email: "sophia.williams@icloud.com", password: '123123', password_confirmation: '123123')
 file5 = URI.parse("https://orlandosydney.com/wp-content/uploads/2023/04/Gradient-Background-Female-Headshots-Sydney.-Corporate-Photos-By-Orlandosydney.com-202300229.jpg").open
 user5.photo.attach(io: file5, filename: "sophia.jpg", content_type: "image/jpg")
 user5.save
-user6 = User.new(first_name: "James", last_name: "Jones", location: "Brixton", email: "james.jones@yahoo.com", password: '123123', password_confirmation: '123123')
+user6 = User.new(first_name: "James", last_name: "Jones", location: "Brixton, London", email: "james.jones@yahoo.com", password: '123123', password_confirmation: '123123')
 file6 = URI.parse("https://thumbs.dreamstime.com/b/profile-picture-caucasian-male-employee-posing-office-happy-young-worker-look-camera-workplace-headshot-portrait-smiling-190186649.jpg").open
 user6.photo.attach(io: file6, filename: "james.jpg", content_type: "image/jpg")
 user6.save
-user7 = User.new(first_name: "Emily", last_name: "Davis", location: "Clapham", email: "emily.davis@gmail.com", password: '123123', password_confirmation: '123123')
+user7 = User.new(first_name: "Emily", last_name: "Davis", location: "Clapham, London", email: "emily.davis@gmail.com", password: '123123', password_confirmation: '123123')
 file7 = URI.parse("https://t3.ftcdn.net/jpg/05/83/41/98/360_F_583419866_97XPxjHDJkQ2RKMmGWdgrbqJhEZeQb55.jpg").open
 user7.photo.attach(io: file7, filename: "emily.jpg", content_type: "image/jpg")
 user7.save
-user8 = User.new(first_name: "Benjamin", last_name: "Miller", location: "Shoreditch", email: "benjamin.miller@hotmail.com", password: '123123', password_confirmation: '123123')
+user8 = User.new(first_name: "Benjamin", last_name: "Miller", location: "Shoreditch, London", email: "benjamin.miller@hotmail.com", password: '123123', password_confirmation: '123123')
 file8 = URI.parse("https://cdn.pixabay.com/photo/2022/08/06/10/57/black-man-7368384_640.jpg").open
 user8.photo.attach(io: file8, filename: "ben.jpg", content_type: "image/jpg")
 user8.save
-user9 = User.new(first_name: "Charlotte", last_name: "Wilson", location: "Chelsea", email: "charlotte.wilson@outlook.com", password: '123123', password_confirmation: '123123')
+user9 = User.new(first_name: "Charlotte", last_name: "Wilson", location: "Chelsea, London", email: "charlotte.wilson@outlook.com", password: '123123', password_confirmation: '123123')
 file9= URI.parse("https://www.wallisphoto.com/IMAGES/2019/Women-Headshots/2015CorporateHeadshots003.jpg").open
 user9.photo.attach(io: file9, filename: "char.jpg", content_type: "image/jpg")
 user9.save
-user10 = User.new(first_name: "Henry", last_name: "Moore", location: "Greenwich", email: "henry.moore@icloud.com", password: '123123', password_confirmation: '123123')
+user10 = User.new(first_name: "Henry", last_name: "Moore", location: "Greenwich, London", email: "henry.moore@icloud.com", password: '123123', password_confirmation: '123123')
 file10 = URI.parse("https://img.freepik.com/free-photo/confident-ethnic-man-with-curly-hair_23-2148203568.jpg").open
 user10.photo.attach(io: file10, filename: "henry.jpg", content_type: "image/jpg")
 user10.save
-user11 = User.new(first_name: "Amelia", last_name: "Taylor", location: "Hackney", email: "amelia.taylor@gmail.com", password: '123123', password_confirmation: '123123')
+user11 = User.new(first_name: "Amelia", last_name: "Taylor", location: "Hackney, London", email: "amelia.taylor@gmail.com", password: '123123', password_confirmation: '123123')
 file11 = URI.parse("https://www.justheadshots.photo/wp-content/uploads/2020/04/Dark-background-headshots-022.jpg").open
 user11.photo.attach(io: file11, filename: "amelia.jpg", content_type: "image/jpg")
 user11.save
-user12 = User.new(first_name: "Jack", last_name: "Thomas", location: "Bermondsey", email: "jack.thomas@yahoo.com", password: '123123', password_confirmation: '123123')
+user12 = User.new(first_name: "Jack", last_name: "Thomas", location: "Bermondsey, London", email: "jack.thomas@yahoo.com", password: '123123', password_confirmation: '123123')
 file12 = URI.parse("https://images.squarespace-cdn.com/content/v1/631ba8eed2196a6795698665/4186dab0-7b13-4534-811a-0c9b8d5d3dfc/2022-05-25-Rubrik-3198-Grant+Schwartz.jpg").open
 user12.photo.attach(io: file12, filename: "jack.jpg", content_type: "image/jpg")
 user12.save
-user13 = User.new(first_name: "Isabella", last_name: "White", location: "Hammersmith", email: "isabella.white@hotmail.com", password: '123123', password_confirmation: '123123')
+user13 = User.new(first_name: "Isabella", last_name: "White", location: "Hammersmith, London", email: "isabella.white@hotmail.com", password: '123123', password_confirmation: '123123')
 file13 = URI.parse("https://t4.ftcdn.net/jpg/03/83/16/13/360_F_383161392_11X8oTOnptZlvRm7TSSStqeXllOHbfdS.jpg").open
 user13.photo.attach(io: file13, filename: "is.jpg", content_type: "image/jpg")
 user13.save
-user14 = User.new(first_name: "Lucas", last_name: "Clark", location: "Tower Hamlets", email: "lucas.clark@outlook.com", password: '123123', password_confirmation: '123123')
+user14 = User.new(first_name: "Lucas", last_name: "Clark", location: "Tower Hamlets, London", email: "lucas.clark@outlook.com", password: '123123', password_confirmation: '123123')
 file14 = URI.parse("https://www.justheadshots.photo/wp-content/uploads/2020/04/white-background-headshots-057.jpg").open
 user14.photo.attach(io: file14, filename: "lucas.jpg", content_type: "image/jpg")
 user14.save
-user15 = User.new(first_name: "Mia", last_name: "Harris", location: "Richmond", email: "mia.harris@gmail.com", password: '123123', password_confirmation: '123123')
+user15 = User.new(first_name: "Mia", last_name: "Harris", location: "Richmond, London", email: "mia.harris@gmail.com", password: '123123', password_confirmation: '123123')
 file15 = URI.parse("https://images.squarespace-cdn.com/content/v1/62b717b1244b1a2e5ba00d20/c1a2560f-2818-4c70-b509-734d09a60e00/Headshot-Operations-exec-in-pink-background-1.jpg").open
 user15.photo.attach(io: file15, filename: "mia.jpg", content_type: "image/jpg")
 user15.save
-user16 = User.new(first_name: "Alexander", last_name: "Lewis", location: "Fulham", email: "alexander.lewis@icloud.com", password: '123123', password_confirmation: '123123')
+user16 = User.new(first_name: "Alexander", last_name: "Lewis", location: "Fulham, London", email: "alexander.lewis@icloud.com", password: '123123', password_confirmation: '123123')
 file16 = URI.parse("https://image3.photobiz.com/40/6_20200320132439_17431604_xlarge.jpg").open
 user16.photo.attach(io: file16, filename: "alexander.jpg", content_type: "image/jpg")
 user16.save
-user17 = User.new(first_name: "Grace", last_name: "Walker", location: "Wandsworth", email: "grace.walker@yahoo.com", password: '123123', password_confirmation: '123123')
+user17 = User.new(first_name: "Grace", last_name: "Walker", location: "Wandsworth, London", email: "grace.walker@yahoo.com", password: '123123', password_confirmation: '123123')
 file17 = URI.parse("https://thumbs.dreamstime.com/b/elderly-woman-headshot-28885934.jpg").open
 user17.photo.attach(io: file17, filename: "grace.jpg", content_type: "image/jpg")
 user17.save
-user18 = User.new(first_name: "Ethan", last_name: "Scott", location: "Paddington", email: "ethan.scott@hotmail.com", password: '123123', password_confirmation: '123123')
+user18 = User.new(first_name: "Ethan", last_name: "Scott", location: "Paddington, London", email: "ethan.scott@hotmail.com", password: '123123', password_confirmation: '123123')
 file18 = URI.parse("https://images.pexels.com/photos/1722198/pexels-photo-1722198.jpeg?cs=srgb&dl=pexels-thyrone-paas-840706-1722198.jpg&fm=jpg").open
 user18.photo.attach(io: file18, filename: "ethan.jpg", content_type: "image/jpg")
 user18.save
-user19 = User.new(first_name: "Harper", last_name: "Green", location: "Lewisham", email: "harper.green@outlook.com", password: '123123', password_confirmation: '123123')
+user19 = User.new(first_name: "Harper", last_name: "Green", location: "Lewisham, London", email: "harper.green@outlook.com", password: '123123', password_confirmation: '123123')
 file19 = URI.parse("https://img.freepik.com/free-photo/headshot-cute-woman-with-luminous-blue-eyes-glowing-face-gentle-smile-rejoicing-from-her-success_273609-7638.jpg").open
 user19.photo.attach(io: file19, filename: "harper.jpg", content_type: "image/jpg")
 user19.save
-user20 = User.new(first_name: "Daniel", last_name: "Baker", location: "Croydon", email: "daniel.baker@gmail.com", password: '123123', password_confirmation: '123123')
+user20 = User.new(first_name: "Daniel", last_name: "Baker", location: "Croydon, London", email: "daniel.baker@gmail.com", password: '123123', password_confirmation: '123123')
 file20 = URI.parse("https://images.ctfassets.net/pdf29us7flmy/783XmiskxZ3dnFh1SdIOKt/56f5015d13fa18fca1fb9d232a85b1af/resized.jpg?w=720&q=100&fm=jpg").open
 user20.photo.attach(io: file20, filename: "daniel.jpg", content_type: "image/jpg")
 user20.save
