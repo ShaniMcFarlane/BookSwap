@@ -21,7 +21,15 @@
             <%= cl_image_tag book.photo.key, alt: book.title, class: "book-cover" if book.photo.key.present? %>
             <h3><%= book.title %></h3>
             <p><%= book.author %></p>
-            <%= button_to "Swap", book_requests_path(book), method: :post, params: { request: { book_id: book.id } }, class: "btn btn-outline-info" %>
+  <%# checking to see if there are any request between two users .any? %>
+  <%# check if there are any requests .any? %>
+              <% if current_user.requests_as_owner.where(user: @user).any? %>
+              <%= button_to "Swap", book_requests_path(book), method: :post, params: { request: { book_id: book.id } }, class: "btn btn-outline-info" %>
+              <% else %>
+             <%= button_to "request", book_requests_path(book), method: :post, params: { request: { book_id: book.id } }, class: "btn btn-outline-info" %>
+              <% end %>
+
+
           </div>
         <% end %>
       <% else %>

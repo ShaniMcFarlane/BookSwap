@@ -31,6 +31,18 @@ class ReviewsController < ApplicationController
   #   end
   # end
 
+  def destroy
+    @book = Book.find(params[:book_id])
+    @review = @book.reviews.find(params[:id])
+
+    if @review.user == current_user
+      @review.destroy
+      redirect_to book_path(@review.book), notice: "Review was successfully deleted."
+    else
+      redirect_to book_path(@review.book), alert: "Review was not deleted."
+    end
+  end
+
   private
 
   def review_params
