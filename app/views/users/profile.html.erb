@@ -1,7 +1,7 @@
  <div class="container">
   <div class="user-info-container">
     <div class="profile-picture">
-      <%= cl_image_tag @user.photo.key, alt: "Default Profile Picture", class: "profile-icon" %>
+      <%# <%= cl_image_tag @user.photo.key, alt: "Default Profile Picture", class: "profile-icon" %>
     </div>
     <div class="profile-info">
       <h1><%= @user.first_name %> <%= @user.last_name %></h1>
@@ -11,7 +11,7 @@
   </div>
   <div class="profile-btn">
     <%= button_to "Requests", requests_path, method: :get, class: "btn btn-outline-info btn-sm" %>
-    <%= button_to "Messages", swap_messages_path(current_user), method: :get, class: "btn btn-outline-info btn-sm" %>
+    <%= button_to "Swaps", swaps_path(current_user), method: :get, class: "btn btn-outline-info btn-sm" %>
   </div>
   <div class="library-container">
     <div class="library-info">

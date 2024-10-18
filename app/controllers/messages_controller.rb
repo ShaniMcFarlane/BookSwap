@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-  before_action :set_swap, only: [:create, :index, :show]
+  before_action :set_swap, only: %i[create index show]
 
   def index
     @messages = @swap.messages.includes(:user)
@@ -10,7 +10,7 @@ class MessagesController < ApplicationController
   end
 
   def create
-    if swap.confirmed?
+    if swap.confirmed? # rubocop:disable Style/GuardClause
       @message = @swap.messages.new(message_params)
       @message.user = current_user
 
@@ -19,8 +19,6 @@ class MessagesController < ApplicationController
       else
         redirect_to swap_path(@swap), alert: 'Message not sent.'
       end
-    else
-      redirect_to swap_path(@swap), alert: 'Confirm swap first.'
     end
   end
 

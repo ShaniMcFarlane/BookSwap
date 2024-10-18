@@ -1,18 +1,18 @@
 class RequestsController < ApplicationController
   def index
     @requests = current_user.requests.includes(:book)
+    @my_requests = Request.where(user_id: current_user.id)
+    @requested_books = Request.where(book_id: current_user.books.pluck(:id))
   end
 
   def show
-    @request = Request.find(params[:id])
+    @request = Request.where(user_id: current_user.id)
+    @book_requests_from_me = Request.joins(:book).where(books: { user_id: current_user.id })
   end
 
   def create
     @request = Request.new(request_params)
     @request.user = current_user
-
-    Rails.logger.debug("Request params: #{request_params.inspect}")
-    Rails.logger.debug("Request user: #{current_user.inspect}")
 
     if @request.save
       redirect_to requests_path, notice: 'Swap request created.'
@@ -29,7 +29,6 @@ class RequestsController < ApplicationController
       redirect_to requests_path, alert: 'Swap request not deleted'
     end
   end
-
 
   private
 
