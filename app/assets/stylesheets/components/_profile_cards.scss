@@ -34,9 +34,12 @@
 }
 
 .btn.btn-outline-info {
-  color: #C5705D;
-  border: #C5705D, solid;
+  // color: #C5705D;
+  // border: #C5705D, solid;
   border-radius: 20px;
+  background-color: #C5705D;
+  color: white;
+  border-color: black;
 }
 
 .library-container {
