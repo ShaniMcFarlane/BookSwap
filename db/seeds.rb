@@ -297,3 +297,9 @@ book50.photo.attach(io: file50, filename: "misery.jpg", content_type: "image/png
 book50.save
 
 puts "Seeds created"
+
+review1 = Review.new(comment: "I loved this book! It was so well written and the characters were so interesting. I couldn't put it down!", rating: 5, date: 21/10/2024, book: book1, user: user2)
+review1.save
+review2 = Review.new(comment: "I thought this book was a bit overrated. The characters were unlikeable and the plot was a bit boring.", rating: 2, date: 21/10/2024, book: book2, user: user3)
+review2.save
+
