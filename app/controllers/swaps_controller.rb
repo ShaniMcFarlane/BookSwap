@@ -5,16 +5,24 @@ class SwapsController < ApplicationController
 
   def show
     @swap = Swap.find(params[:id])
+    @user = current_user
+    @request = Request.find(params[:request_id])
     @message = Message.new
     @messages = @swap.messages
   end
 
   def create
     @swap = Swap.new(swap_params)
+    @request = Request.find(params[:request_id])
+    @book = Book.find(params[:swap][:book_id])
+    @user = User.find(params[:user_id])
+    @swap.request = @request
+    @swap.book = @book
     @swap.user = current_user
     @swap.status = 'pending'
+
     if @swap.save
-      redirect_to swap_path(@swap), notice: 'Swap requested.'
+      redirect_to request_user_swap_path(@request, @user, @swap), notice: 'Swap requested.'
     else
       redirect_to requests_path, alert: 'Swap not requested.'
     end

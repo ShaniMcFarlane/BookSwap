@@ -14,7 +14,6 @@ class BooksController < ApplicationController
         lat: user.latitude,
         lng: user.longitude
       }
-      
     end
   end
 
@@ -38,6 +37,7 @@ class BooksController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+    @swap = Swap.create(book: @book, requested_book: @requested_book, status: 'pending')
   end
 
   def edit
