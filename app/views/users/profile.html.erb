@@ -42,7 +42,7 @@
 
             <%= cl_image_tag book.photo.key, alt: book.title, class: "book-cover" if book.photo.key.present? %>
             <h3><%= book.title %></h3>
-            <%= link_to 'Delete', profile_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+            <%= link_to '🗑️', book_path(book), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
           </div>
         <% end %>
       <% else %>
