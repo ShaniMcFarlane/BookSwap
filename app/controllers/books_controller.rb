@@ -1,3 +1,6 @@
+require 'json'
+require 'open-uri'
+
 class BooksController < ApplicationController
   def index
     # @books = Book.all
@@ -13,10 +16,9 @@ class BooksController < ApplicationController
       {
         lat: user.latitude,
         lng: user.longitude,
-        info_window_html: render_to_string(partial: "info_window_partial", locals: { user: user }),
+        info_window_html: render_to_string(partial: "info_window_partial", locals: { user: }),
         marker_html: render_to_string(partial: "book_marker")
       }
-
     end
   end
 
@@ -34,13 +36,24 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(book_params)
+    unless @book.barcode.nil?
+      url = "https://www.googleapis.com/books/v1/volumes?q=isbn:#{@book.barcode}"
+      response = URI.open(url).read
+      data = JSON.parse(response)
+      @book.title = data['items'][0]['volumeInfo']['title']
+      @book.author = data['items'][0]['volumeInfo']['authors'][0]
+      @book.genre = data['items'][0]['volumeInfo']['categories'][0]
+      @book.publish_date = data['items'][0]['volumeInfo']['publishedDate']
+      image = data['items'][0]['volumeInfo']['imageLinks']['thumbnail']
+      file = URI.parse(image).open
+      @book.photo.attach(io: file, filename: "#{@book.title}.jpg", content_type: "image/png")
+    end
     @book.user = current_user
     if @book.save
-      redirect_to book_path(@book)
+      redirect_to profile_path
     else
       render :new, status: :unprocessable_entity
     end
-    @swap = Swap.create(book: @book, requested_book: @requested_book, status: 'pending')
   end
 
   def edit
@@ -56,6 +69,6 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:title, :author, :genre, :publish_date)
+    params.require(:book).permit(:title, :author, :genre, :publish_date, :barcode)
   end
 end
