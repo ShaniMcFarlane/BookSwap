@@ -23,11 +23,13 @@ Rails.application.routes.draw do
 
   resources :requests, only: [:index, :show, :update, :destroy] do
     resources :users, only: :show do
-      resources :swaps, only: [:create, :show] do
-        resources :messages, only: :create
-      end
+      resources :swaps, only: [:create]
       # resources :reviews, only: [:create]
     end
+  end
+
+  resources :swaps, only: :show do
+    resources :messages, only: :create
   end
 
   resources :messages, only: [:destroy]
