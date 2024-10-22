@@ -11,12 +11,29 @@
   </div>
   <div class="profile-btn">
     <%= button_to "Requests", requests_path, method: :get, class: "btn btn-outline-info btn-sm" %>
-    <%= button_to "Swaps", swaps_path(current_user), method: :get, class: "btn btn-outline-info btn-sm" %>
   </div>
+
+<h3>Swaps</h3>
+<% if @swaps_pending.any? %>
+   <% @swaps_pending.each do |swap| %>
+  <div class="swap">
+    <h4>Swap with <%= swap.user == current_user ? swap.requester.first_name : swap.user.first_name %></h4>
+    <p><strong>My Book:</strong> <%= swap.user == current_user ? swap.book.title : swap.book.title %></p>
+    <p><strong>Requested Book:</strong> <%= swap.book.title %></p>
+     <%# <%= link_to "Message", request_user_swap_messages_path(swap, :swap_id), class: "btn btn-info" %>
+     <%# <%= button_to "Swapped", swap_path(@swap), method: :patch, class: "btn btn-success", data: { confirm: "Are you sure you want to confirm this swap and update your libraries?" } %>
+  </div>
+  <% end %>
+<% else %>
+  <p>No pending swaps.</p>
+<% end %>
+
+
+
   <div class="library-container">
     <div class="library-info">
       <h3>My Library</h3>
-      <%= button_to "Add Book", "#", method: :get, class: "btn btn-outline-info btn-sm" %>
+      <%= button_to "Add Book", new_book_path, method: :get, class: "btn btn-outline-info btn-sm" %>
     </div>
     <div class="books-container">
        <% if @user.books.any? %>

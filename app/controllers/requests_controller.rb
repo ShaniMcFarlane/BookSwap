@@ -11,13 +11,15 @@ class RequestsController < ApplicationController
   end
 
   def create
-    @request = Request.new(request_params)
+    @request = Request.new(book_id: params[:book_id])
     @request.user = current_user
+    @book = Book.find(params[:book_id])
+    @requested_book = @request.book
 
     if @request.save
-      redirect_to requests_path, notice: 'Swap request created.'
+      redirect_to requests_path
     else
-      redirect_to books_path, alert: 'Swap request not created.'
+      render book_path(params[:book_id]), status: :unprocessable_entity, alert: 'Request not created.'
     end
   end
 
@@ -33,6 +35,6 @@ class RequestsController < ApplicationController
   private
 
   def request_params
-    params.require(:request).permit(:book_id)
+    params.require(:request).permit(:book_id, :requested_book_id)
   end
 end
