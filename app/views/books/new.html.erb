@@ -1,14 +1,10 @@
 <!-- #create form and add name, publish date, title -->
 <div class="add-book-container">
-  <h2>Add a Book</h2>
+  <h2>Add Book</h2>
 
   <div class="add-book-form">
     <%= simple_form_for @book do |f| %>
-      <%= f.input :title, label: "Title", required: true %>
-      <%= f.input :author, label: "Author", required: true %>
-      <%= f.input :publish_date, label: "Publish Date", required: true %>
-      <%= f.input :genre, label: "Genre", required: true %>
-      <%= f.input :photo, as: :file, label: "Photo" %>
+      <%= f.input :barcode, label: false, as: :string, placeholder: "ISBN", required: true %>
       <%= f.submit "Add Book", class: "btn btn-primary" %>
     <% end %>
   </div>

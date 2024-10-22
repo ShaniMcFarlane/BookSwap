@@ -11,6 +11,7 @@
 require "open-uri"
 require "faker"
 
+Review.destroy_all
 Request.destroy_all
 Book.destroy_all
 User.destroy_all
