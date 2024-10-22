@@ -1,0 +1,24 @@
+<h1>Swaps</h1>
+
+
+<% if @swap.present? %>
+  <h2>Swap with <%= @swap.user.first_name %></h2>
+   <% @messages.each do |message| %>
+      <p>
+        <strong><%= message.user.first_name %>:</strong> <%= message.content %>
+       <p><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></p>
+      </p>
+    <% end %>
+
+  <%= simple_form_for [@request, @user, @swap, @message] do |f| %>
+    <%= f.input :content, placeholder: "Let's swap books...", required: true %>
+    <%= f.submit "Send", class: "btn btn-primary" %>
+  <% end %>
+<% end %>
+
+<%# see all messages -> messages index %>
+<%# both the current user and other user can see thier messgaes -> if statment  %>
+
+<%# chaneg to show page -  %>
+<%# # swap where current user is me %>
+<%# # swap where current user is the request %>
