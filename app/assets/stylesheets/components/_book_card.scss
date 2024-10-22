@@ -1,6 +1,6 @@
-// body {
-  // background-color: rgb(23, 22, 22);
-// }
+body {
+  background: black;
+ }
 
 .book-card {
   overflow: hidden;
@@ -10,7 +10,6 @@
   margin-top: 20px;
   margin-bottom: 20px;
   height: 150px;
-  // box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   margin: auto;
   max-width: 85%;
 }
@@ -21,13 +20,10 @@
 
 hr.line {
   border: none;
-  border-bottom: 1px solid #888;
-  // #C5705D;
+  border-bottom: 2px solid #ffffff;
   width: 85%;
   margin: 20px auto;
 }
-
-hr
 
 .card-body {
   padding: 25px;
@@ -71,8 +67,8 @@ hr
 }
 
 .book-filter {
-  color: #C5705D;
-  border: #C5705D, solid;
+  color: #DDB9B9;
+  border: #DDB9B9, solid;
   border-radius: 20px;
   justify-content: left;
 }
@@ -95,7 +91,7 @@ hr
 }
 
 .btn.search-btn {
-  border: #C5705D, solid, 1px;
+  border: #DDB9B9, solid, 1px;
   border-radius: 20px;
 }
 
@@ -106,11 +102,11 @@ hr
 .card-title {
   text-decoration: none;
   // color: #4e4e4e
-  color: #C5705D;
+  color: #DDB9B9;
 }
 
 p {
-  color: #616161;
+  color: #DDB9B9;
 }
 
 a:link {
@@ -130,8 +126,13 @@ a:active {
   margin-top: 20px;
   margin-bottom: 20px;
   text-align: center;
-  color: #C5705D;
+  color: #DDB9B9;
   font-size: 3.2rem;
   font-weight: 100;
 
+}
+
+.map-icon {
+  justify-content: center;
+  align-items: center;
 }
