@@ -33,7 +33,7 @@
   <div class="library-container">
     <div class="library-info">
       <h3>My Library</h3>
-      <%= button_to "Add Book", "#", method: :get, class: "btn btn-outline-info btn-sm" %>
+      <%= button_to "Add Book", new_book_path, method: :get, class: "btn btn-outline-info btn-sm" %>
     </div>
     <div class="books-container">
        <% if @user.books.any? %>
