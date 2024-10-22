@@ -1,12 +1,12 @@
  <div class="container">
   <div class="user-info-container">
     <div class="profile-picture">
-      <%= cl_image_tag @user.photo.key, alt: "Default Profile Picture", class: "profile-icon" %>
+      <%= cl_image_tag current_user.photo.key, alt: "Default Profile Picture", class: "profile-icon" %>
     </div>
     <div class="profile-info">
-      <h1><%= @user.first_name %> <%= @user.last_name %></h1>
-      <p><%= @user.location %></p>
-       <p>Books Swapped: <%= @user.swapped_books_count %></p>
+      <h1><%= current_user.first_name %> <%= current_user.last_name %></h1>
+      <p><%= current_user.location %></p>
+       <p>Books Swapped: <%= current_user.swapped_books_count %></p>
     </div>
   </div>
   <div class="profile-btn">
@@ -17,10 +17,11 @@
 <% if @swaps_pending.any? %>
    <% @swaps_pending.each do |swap| %>
   <div class="swap">
-    <h4>Swap with <%= swap.user == current_user ? swap.requester.first_name : swap.user.first_name %></h4>
-    <p><strong>My Book:</strong> <%= swap.user == current_user ? swap.book.title : swap.book.title %></p>
-    <p><strong>Requested Book:</strong> <%= swap.book.title %></p>
-     <%# <%= link_to "Message", request_user_swap_messages_path(swap, :swap_id), class: "btn btn-info" %>
+    <h4>Swap with <%= swap.user == current_user ? swap.request.user.first_name : swap.user.first_name %></h4>
+    <%= swap.id %>
+    <p><strong>My Book:</strong> <%= swap.book.title %></p>
+    <p><strong>Requested Book:</strong> <%= swap.request.book.title %></p>
+     <%= link_to "Message", swap_path(swap), class: "btn btn-info" %>
      <%# <%= button_to "Swapped", swap_path(@swap), method: :patch, class: "btn btn-success", data: { confirm: "Are you sure you want to confirm this swap and update your libraries?" } %>
   </div>
   <% end %>
@@ -36,7 +37,7 @@
       <%= button_to "Add Book", new_book_path, method: :get, class: "btn btn-outline-info btn-sm" %>
     </div>
     <div class="books-container">
-       <% if @user.books.any? %>
+       <% if current_user.books.any? %>
         <% @books.each do |book| %>
           <div class="book-card">
 

@@ -6,27 +6,22 @@ class UsersController < ApplicationController
   end
 
   def profile
-    @user = current_user
-    @books = @user.books
+    @books = current_user.books
+    @swaps_pending = current_user.swaps.where(status: 'pending') + current_user.swaps_as_owner.where(status: 'pending')
+    # current_user.requests
+    # current_user.requests_as_owner
 
-    @requester = Request.where(user: @user)
-    @book = Book.find(params[:book_id]) if params[:book_id].present?
-    @swaps = Swap.find(params[:swap_id]) if params[:swap_id].present?
+    # @book = Book.find(params[:book_id]) if params[:book_id].present?
+    # @swaps = Swap.find(params[:swap_id]) if params[:swap_id].present?
 
-    @swaps_as_owner = Swap.joins(:book).where(status: 'pending').where(books: { user_id: @user.id })
-    @swaps_as_requester = Swap.joins(:request).where(status: 'pending').where(requests: { user_id: @user.id })
+    # @swaps_as_owner = Swap.joins(:book).where(status: 'pending').where(books: { user_id: current_user.id })
+    # @swaps_as_requester = Swap.joins(:request).where(status: 'pending').where(requests: { user_id: current_user.id })
 
-    if params[:id].present?
-      @user = User.find(params[:id])
-    else
-      @user = current_user
-    end
+    # @requests_made = Request.where(user: current_user)
+    # @requests_received = Request.where(book: current_user.books)
 
-    @requests_made = Request.where(user: @user)
-    @requests_received = Request.where(book: @user.books)
-
-    @swaps_pending = Swap.joins(:request).where(status: 'pending').where(requests: { user_id: @user.id })
-    @swaps_confirmed = Swap.joins(:request).where(status: 'confirmed').where(requests: { user_id: @user.id })
+    # @swaps_pending = Swap.joins(:request).where(status: 'pending').where(requests: { user_id: current_user.id })
+    # @swaps_confirmed = Swap.joins(:request).where(status: 'confirmed').where(requests: { user_id: current_user.id })
   end
 
   def show
