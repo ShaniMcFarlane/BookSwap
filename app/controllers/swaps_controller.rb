@@ -1,12 +1,8 @@
 class SwapsController < ApplicationController
-  def index
-    @swaps = Swap.all
-  end
-
   def show
     @swap = Swap.find(params[:id])
-    @user = current_user
-    @request = Request.find(params[:request_id])
+    @other_user = current_user == @swap.user ? @swap.request.user : @swap.user
+    # @request = Request.find(params[:request_id])
     @message = Message.new
     @messages = @swap.messages
   end

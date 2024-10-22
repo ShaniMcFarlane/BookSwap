@@ -1,5 +1,5 @@
 body {
-  background: black;
+  background: linear-gradient(#0D0B0B, #726363);
  }
 
 .book-card {
@@ -64,6 +64,7 @@ hr.line {
 .book-list-container {
   margin-top: 100px;
   margin-bottom: 100px;
+  // text-align: center;
 }
 
 .book-filter {
@@ -76,7 +77,7 @@ hr.line {
 .search-bar {
   margin-top: 20px;
   margin-bottom: 20px;
-  border: 1px solid #C5705D;
+  border: 1px solid #DDB9B9;
   border-radius: 25px;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   margin-right: 30px;
@@ -93,6 +94,7 @@ hr.line {
 .btn.search-btn {
   border: #DDB9B9, solid, 1px;
   border-radius: 20px;
+  color: #DDB9B9;
 }
 
 .btn .btn-dark {
@@ -133,6 +135,5 @@ a:active {
 }
 
 .map-icon {
-  justify-content: center;
-  align-items: center;
+  text-align: center;
 }
