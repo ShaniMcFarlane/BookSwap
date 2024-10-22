@@ -7,13 +7,16 @@ class BooksController < ApplicationController
       @books = Book.all
 
     end
-    # @books = Book.all
+
     @users = User.all
     @markers = @users.geocoded.map do |user|
       {
         lat: user.latitude,
-        lng: user.longitude
+        lng: user.longitude,
+        info_window_html: render_to_string(partial: "info_window_partial", locals: { user: user }),
+        marker_html: render_to_string(partial: "book_marker")
       }
+
     end
   end
 
