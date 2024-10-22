@@ -1,5 +1,5 @@
-<%= link_to user_path(user) do %>
+<%#= link_to request_user_path(user) do %>
 <%= cl_image_tag user.photo.key, alt: "Default Profile Picture", class: "profile-icon" %>
   <h1><%= user.first_name %> <%= user.last_name %></h1>
   <p><%= user.location %></p>
-<% end %>
+<%# end %>
