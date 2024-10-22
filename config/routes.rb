@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 
   get '/profile', to: 'users#profile', as: :profile
 
-  resources :books, only: [:index, :show, :create, :update, :destroy] do
+  resources :books, only: [:index, :show, :new, :create, :update, :destroy] do
     resources :requests, only: [:create]
     resources :reviews, only: [:create, :destroy]
 

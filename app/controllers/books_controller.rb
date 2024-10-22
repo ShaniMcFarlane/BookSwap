@@ -14,14 +14,13 @@ class BooksController < ApplicationController
         lat: user.latitude,
         lng: user.longitude
       }
-      
     end
   end
 
   def show
     @book = Book.find(params[:id])
     @review = Review.new
-    @reviews = @book.reviews.includes(:user)
+    @reviews = @book.reviews
     @book = Book.includes(:reviews).find(params[:id])
     @user = @book.user
   end
