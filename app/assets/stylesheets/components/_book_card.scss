@@ -11,7 +11,7 @@ body {
   margin-bottom: 20px;
   height: 150px;
   margin: auto;
-  max-width: 85%;
+  padding: 0 20px;
 }
 
 .d-flex.my-3 {
@@ -118,7 +118,7 @@ a:active {
 }
 
 .title-page-books {
-  margin-top: 20px;
+  margin-top: -50px;
   margin-bottom: 20px;
   text-align: center;
   color: #DDB9B9;
@@ -129,8 +129,12 @@ a:active {
 
 .map-icon {
   text-align: center;
+
 }
 
+.map-icon-pink {
+  border-radius: 25px;
+}
 .form-control {
   border-radius: 15px;
   border: 1px solid #846868;
@@ -146,7 +150,6 @@ a:active {
   object-fit: cover;
   margin-top: 20px;
   margin-bottom: 20px;
-  display: flex;
   justify-content: center;
   border-radius: 15px;
 }
@@ -176,4 +179,34 @@ a:active {
   border-radius: 20px;
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+.book-details {
+  text-align: center;
+}
+
+.modal-title {
+  color: white;
+  text-align: center;
+  background-color: #5E4F4F;
+}
+
+.modal-body {
+  background-color: #5E4F4F;
+  border: #5E4F4F;
+}
+
+.modal-header {
+  background-color: #5E4F4F;
+  text-align: center;
+  border: none;
+}
+
+.modal-footer {
+  background-color: #5E4F4F;
+  border: none;
+}
+
+.navbar.navbar-expand-sm.navbar-light.navbar-lewagon.fixed-bottom {
+  background-color: #5E4F4F;
 }
