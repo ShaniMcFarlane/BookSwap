@@ -25,7 +25,7 @@
   <% if @book.reviews.any? %>
     <% @book.reviews.each do |review| %>
       <div class="review">
-        <p><strong><%= review.user.first_name %>:</strong> <%= review.comment %></p>
+        <p><strong><%= review.user.first_name %>:</strong> <%= review.comment %> <%= review.rating %></p>
         <% if current_user == review.user %>
           <%= link_to 'Delete', book_review_path(@book, review), method: :delete, data: { confirm: "Are you sure?" } %>
         <% end %>
