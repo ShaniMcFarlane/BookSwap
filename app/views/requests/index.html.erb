@@ -23,20 +23,11 @@
     <div class="request-item">
       <h3><%= request.book.title %></h3>
       <p>Requested by: <%= request.user.first_name %></p>
-
-
-      <%# <p>Status: <%= request.swap.present? ? 'Swapped' : 'Pending' %>
-
-      <% if request.present? %>
-       <p>pending</p>
        <%= link_to "Choose a book",  request_user_path(request, request.user), class: "btn btn-success" %>
       <%= link_to "Decline", request_path(request), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger" %>
-      <% else %>
-        <p>Swapped</p>
       <% end %>
 
       <%# <%= cl_image_tag book.photo.key, alt: book.title, class: "book-cover" if book.photo.key.present? %>
 
     </div>
-  <% end %>
 </div>

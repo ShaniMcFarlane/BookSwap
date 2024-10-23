@@ -10,7 +10,7 @@
       </p>
     <% end %>
 
-  <%= simple_form_for [@request, @user, @swap, @message] do |f| %>
+  <%= simple_form_for [@swap, @message] do |f| %>
     <%= f.input :content, placeholder: "Let's swap books...", required: true %>
     <%= f.submit "Send", class: "btn btn-primary" %>
   <% end %>
