@@ -18,7 +18,7 @@ class SwapsController < ApplicationController
     @swap.status = 'pending'
 
     if @swap.save
-      redirect_to request_user_swap_path(@request, @user, @swap), notice: 'Swap requested.'
+      redirect_to profile_path(@request, @user, @swap), notice: 'Swap requested.'
     else
       redirect_to requests_path, alert: 'Swap not requested.'
     end

@@ -6,7 +6,7 @@ body {
   overflow: hidden;
   align-items: center;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   margin-top: 20px;
   margin-bottom: 20px;
   height: 150px;
@@ -60,7 +60,6 @@ hr.line {
 .book-list-container {
   margin-top: 100px;
   margin-bottom: 100px;
-  // text-align: center;
 }
 
 .book-filter {
@@ -73,33 +72,31 @@ hr.line {
 .search-bar {
   margin-top: 20px;
   margin-bottom: 20px;
-  border: 1px solid #DDB9B9;
-  border-radius: 25px;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   margin-right: 30px;
   margin-left: 30px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  border-radius: 25px;
+  color: #DDB9B9;
 }
 
 .search-type {
   margin-left: 20px;
   margin-right: 20px;
-}
-
-.btn.search-btn {
-  border: #DDB9B9, solid, 1px;
-  border-radius: 20px;
   color: #DDB9B9;
 }
 
-.btn .btn-dark {
+.btn.search-btn {
+  display: flex;
+  text-align: center;
   justify-content: center;
+  border-radius: 15px;
+  border: 1px solid #846868;
+  background: rgba(114, 99, 99, 0.00);
+  font-size: x-small;
+  color: #DDB9B9;
 }
 
 .card-title {
   text-decoration: none;
-  // color: #4e4e4e
   color: #DDB9B9;
 }
 
@@ -132,4 +129,51 @@ a:active {
 
 .map-icon {
   text-align: center;
+}
+
+.form-control {
+  border-radius: 15px;
+  border: 1px solid #846868;
+  background: rgba(217, 217, 217, 0.00);
+  width: 211px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.book-show-image {
+  width: 50%;
+  height: auto;
+  object-fit: cover;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  border-radius: 15px;
+}
+
+.book-details-info {
+  color: #DDB9B9;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.book-info-card {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-weight: 200;
+  text-align: center;
+  max-width: 100%;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.btn.btn-outline-info {
+  color: #DDB9B9;
+  border: #DDB9B9, solid;
+  border-radius: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }

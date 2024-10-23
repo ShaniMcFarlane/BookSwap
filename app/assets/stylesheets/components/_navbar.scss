@@ -72,10 +72,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0;
-  padding-top: 10px;
-  // box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
   width: 100%;
+  background-color: #0D0B0B;
+  color: #DDB9B9;
 }
 
 .navbar.fixed-top {
@@ -99,4 +98,19 @@
   margin-right: 20px;
   color: white;
 
+}
+
+.swaps-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #DDB9B9;
+  border: #DDB9B9;
+  border-radius: 25px;
+  background-color: #413737;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
