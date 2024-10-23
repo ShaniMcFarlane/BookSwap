@@ -13,10 +13,11 @@
     <%= button_to "Requests", requests_path, method: :get, class: "btn btn-outline-info btn-sm" %>
   </div>
 
+<div class="swaps-div">
 <h3>Swaps</h3>
 <% if @swaps_pending.any? %>
    <% @swaps_pending.each do |swap| %>
-  <div class="swap">
+  <div class="swap-card">
     <h4>Swap with <%= swap.user == current_user ? swap.request.user.first_name : swap.user.first_name %></h4>
     <%= swap.id %>
     <p><strong>My Book:</strong> <%= swap.book.title %></p>
@@ -28,7 +29,7 @@
 <% else %>
   <p>No pending swaps.</p>
 <% end %>
-
+</div>
 
 
   <div class="library-container">
@@ -39,13 +40,17 @@
     <div class="books-container">
        <% if current_user.books.any? %>
         <% @books.each do |book| %>
-          <div class="book-card">
-
-            <%= cl_image_tag book.photo.key, alt: book.title, class: "book-cover" if book.photo.key.present? %>
-            <h3><%= book.title %></h3>
-            <%= link_to 'Delete', profile_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-          </div>
-        <% end %>
+            <hr class="line">
+      <div class="book-card">
+        <div class="card-body">
+          <h4 class="card-title"><%= book.title.downcase %></h4>
+            <p><%= book.author %></p>
+            <p><%= book.genre %></p>
+        </div>
+        <%= cl_image_tag book.photo.key, alt: "Card image cap", class: "card-img-top" %>
+      </div>
+  <% end %>
+    </div>
       <% else %>
         <p>You don't have any books in your library yet.</p>
       <% end %>
