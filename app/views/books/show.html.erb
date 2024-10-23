@@ -1,14 +1,15 @@
-<h1><%= @book.title %></h1>
-<div class="container-for-book-details">
+<div class="container">
   <div class="book-details">
-    <img src="https://via.placeholder.com/150" alt="book cover" class="book-details-image">
+    <%= cl_image_tag @book.photo.key, alt: "Card image cap", class: "book-show-image" %>
 
    <div class="book-details-info">
-      <h1><%= @book.title %></h1>
-      <p>By: <%= @book.author %></p>
-      <p>Published: <%= @book.publish_date %></p>
-      <p>Genre: <%= @book.genre %></p>
-      <%= button_to "Swap Book", book_requests_path(@book), method: :post, class: "btn btn-outline-info" %>
+        <h1><%= @book.title.downcase %></h1>
+        <div class="book-info-card">
+        <p><%= @book.author %></p>
+        <p><%= @book.publish_date %></p>
+        <p><%= @book.genre %></p>
+      </div>
+      <%= button_to "request", book_requests_path(@book), method: :post, class: "btn btn-outline-info" %>
     </div>
   </div>
 
