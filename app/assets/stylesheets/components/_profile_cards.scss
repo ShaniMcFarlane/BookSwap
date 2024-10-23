@@ -1,3 +1,8 @@
+
+.container {
+  padding-bottom: 70px;
+}
+
 .user-info-container {
   display: flex;
   justify-content: center;
@@ -84,39 +89,4 @@
   margin-bottom: 20px;
   height: 150px;
   max-width: 85%;
-}
-
-.container {
-  padding-bottom: 70px;
-}
-
-.reviews-container {
-  color: #DDB9B9;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  color: #DDB9B9;
-  border: #DDB9B9;
-  border-radius: 25px;
-  background-color: #413737;
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-
-.review {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  color: #DDB9B9;
-  border: #DDB9B9;
-  border-radius: 25px;
-  background-color: #413737;
-  padding-top: 20px;
-  padding-bottom: 20px;
 }
