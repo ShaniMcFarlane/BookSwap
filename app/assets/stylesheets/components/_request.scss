@@ -1,0 +1,44 @@
+.request-title {
+  color: #DDB9B9;
+  text-align: center;
+  font-weight: 200;
+  font-size: 2rem;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  padding: 0;
+}
+
+.requests-list {
+  padding-left: 0;
+}
+
+.request-item {
+  background-color: #413737;
+  color: #DDB9B9;
+  border-radius: 25px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 20px;
+  justify-content: center;
+}
+
+.request-book-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.request-img-top {
+  height: auto;
+  width: 20%;
+  border-radius: 15px;
+
+}
+
+.request-options {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  width: 100%;
+  background-color: #211b1b;
+  border-radius: 15px;
+}

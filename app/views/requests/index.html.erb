@@ -1,33 +1,63 @@
-<h1>My requests</h1>
-<p>I want</p>
-<% if @requests.any? %>
-  <ul class="requests-list">
-    <% @requests.each do |request| %>
-      <li class="request-item">
-        <p><strong>Book:</strong> <%= request.book.title %></p>
-        <%# <%= cl_image_tag @book.photo.key, alt: @book.title, class: "book-cover" if @book.photo.key.present? %>
-        <%= link_to "View Details", book_path(request.book), class: "btn btn-primary" %>
-        <%= link_to 'Cancel Request', request_path(request), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-      </li>
-    <% end %>
-  </ul>
-<% else %>
-  <p>You have no requests</p>
-  <%= link_to "Request a book", books_path, class: "btn btn-primary" %>
-<% end %>
+<div class="container">
+  <h1 class="request-title">requests made to me</h1>
 
+  <div class="requests-list">
+    <% @requested_books.each do |request| %>
 
-<h1>Requests Made to Me</h1>
-<div class="requested-books">
-  <% @requested_books.each do |request| %>
     <div class="request-item">
-      <h3><%= request.book.title %></h3>
-      <p>Requested by: <%= request.user.first_name %></p>
-       <%= link_to "Choose a book",  request_user_path(request, request.user), class: "btn btn-success" %>
-      <%= link_to "Decline", request_path(request), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger" %>
+
+    <div class="request-book-info">
+
+      <div class="request-text">
+        <p><%= request.user.first_name %> want's </p>
+        <p><%= request.book.title.downcase %></p>
+      </div>
+
+      <%# <%= cl_image_tag request.book.photo.key, alt: book.title, class: "book-cover" if book.photo.key.present? %>
+      </div>
+
+        <div class="request-options">
+          <%= link_to "choose a book",  request_user_path(request, request.user), class: "btn btn-outline-info" %>
+          <%= link_to "decline", request_path(request), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-outline-info" %>
+        </div>
+
+      </div>
+    <% end %>
+  </div>
+
+  <h1 class="request-title">my requests</h1>
+  <p><%= current_user.first_name %>, you have requested: </p>
+  <% if @requests.any? %>
+
+    <div class="requests-list">
+      <% @requests.each do |request| %>
+
+        <div class="request-item">
+
+          <div class="request-book-info">
+
+            <div class="request-text">
+              <p><%= request.book.title.downcase %></p>
+              <p><%= request.book.author %></p>
+            </div>
+
+            <%= cl_image_tag request.book.photo.key, alt: "Card image cap", class: "request-img-top" %>
+          </div>
+
+          <div class="request-options">
+            <%= link_to "details", book_path(request.book), class: "btn btn-outline-info" %>
+            <%= link_to 'cancel', request_path(request), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-outline-info" %>
+          </div>
+
+        </div>
+
       <% end %>
-
-      <%# <%= cl_image_tag book.photo.key, alt: book.title, class: "book-cover" if book.photo.key.present? %>
-
     </div>
+
+  <% else %>
+    <p>You have no requests</p>
+    <%= link_to "request a book", books_path, class: "btn btn-primary" %>
+  <% end %>
+
+
 </div>
