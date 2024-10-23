@@ -6,7 +6,9 @@ class MessagesController < ApplicationController
     @message.user = current_user
 
     if @message.save
-      redirect_to swap_path(@swap), notice: 'Message sent.'
+      # redirect_to swap_path(@swap), notice: 'Message sent.'
+      render turbo_stream: turbo_stream.append(:messages, partial: "messages/message",
+                                                          locals: { message: @message, user: current_user, swap: @swap })
     else
       render "swaps/show", alert: 'Message not sent.'
     end
