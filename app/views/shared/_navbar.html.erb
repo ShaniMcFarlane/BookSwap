@@ -1,4 +1,3 @@
-
   <div class="container-banner-logo">
     <div class="top-banner">
       <h1>BookSwap</h1>
@@ -13,14 +12,14 @@
         <!-- Home Button -->
         <li class="nav-item active">
           <%= link_to books_path, class: "nav-link text-center" do %>
-            <i class="fas fa-book nav-icon"></i>
+            <i class="fa-solid fa-book" style="color: #f7fffe;"></i>
           <% end %>
         </li>
 
         <!-- Messages Button -->
         <li class="nav-item">
           <%= link_to "#", class: "nav-link text-center" do %>
-            <i class="fas fa-message nav-icon"></i>
+            <i class="fa-solid fa-plus" style="color: #f9faff;"></i>
 
           <% end %>
         </li>
@@ -28,7 +27,7 @@
         <!-- Profile Button -->
         <li class="nav-item">
           <%= link_to profile_path, class: "nav-link text-center" do %>
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "Profile" %>
+            <%= cl_image_tag current_user.photo.key, class: "avatar", alt: "Profile" %>
           <% end %>
         </li>
 

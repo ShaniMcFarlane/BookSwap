@@ -13,6 +13,14 @@
     </div>
   </div>
 
+
+
+  <%= simple_form_for [@book, @review] do |f| %>
+    <%= f.input :comment, placeholder: "Write a review...", required: true %>
+    <%= f.input :rating, as: :select, collection: 0..5, label: "Rating (0-5)" %>
+    <%= f.submit "Submit", class: "btn btn-primary" %>
+  <% end %>
+
   <h2>Reviews</h2>
   <% if @book.reviews.any? %>
     <% @book.reviews.each do |review| %>
@@ -25,12 +33,6 @@
     <% end %>
   <% else %>
     <p>No reviews yet. Be the first to leave a review!</p>
-  <% end %>
-
-  <%= simple_form_for [@book, @review] do |f| %>
-    <%= f.input :comment, placeholder: "Write a review...", required: true %>
-    <%= f.input :rating, as: :select, collection: 0..5, label: "Rating (0-5)" %>
-    <%= f.submit "Submit", class: "btn btn-primary" %>
   <% end %>
 
 </div>

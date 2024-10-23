@@ -51,7 +51,6 @@
 }
 
 .books-container {
-  display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -76,6 +75,18 @@
   height: 150px;
   max-width: 85%;
 }
+
+.container {
+  padding-bottom: 70px;
+}
+
+
+
+
+
+
+
+
 
 .add-book-form-manual {
  width: 100%;
@@ -112,4 +123,3 @@ page {
   -o-background-size: cover;
   background-size: cover;
 }
-
