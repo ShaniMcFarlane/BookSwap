@@ -14,22 +14,24 @@
   </div>
 
 
-
+<div class="reviews-container">
   <%= simple_form_for [@book, @review] do |f| %>
     <%= f.input :comment, placeholder: "Write a review...", required: true %>
     <%= f.input :rating, as: :select, collection: 0..5, label: "Rating (0-5)" %>
-    <%= f.submit "Submit", class: "btn btn-primary" %>
+    <%= f.submit "Submit", class: "btn.btn-outline-info" %>
   <% end %>
+</div>
 
-  <h2>Reviews</h2>
+
+  <h2 class="review-header">Reviews</h2>
   <% if @book.reviews.any? %>
     <% @book.reviews.each do |review| %>
-      <div class="review">
+<div class="review">
         <p><strong><%= review.user.first_name %>:</strong> <%= review.comment %></p>
         <% if current_user == review.user %>
           <%= link_to 'Delete', book_review_path(@book, review), method: :delete, data: { confirm: "Are you sure?" } %>
         <% end %>
-      </div>
+  </div>
     <% end %>
   <% else %>
     <p>No reviews yet. Be the first to leave a review!</p>

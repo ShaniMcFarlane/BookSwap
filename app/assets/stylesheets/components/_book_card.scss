@@ -1,5 +1,5 @@
 body {
-  background: linear-gradient(#0D0B0B, #5E4F4F);
+  background:#0D0B0B;
   // background-color: #0D0B0B;
   height: 90dvh;
  }
@@ -126,7 +126,6 @@ a:active {
   color: #DDB9B9;
   font-size: 3.2rem;
   font-weight: 100;
-
 }
 
 .map-icon {
@@ -144,6 +143,7 @@ a:active {
   background: rgba(217, 217, 217, 0.00);
   height: 28px;
   flex-shrink: 0;
+  color: #DDB9B9;
 }
 
 .book-show-image {
@@ -211,4 +211,8 @@ a:active {
 
 .navbar.navbar-expand-sm.navbar-light.navbar-lewagon.fixed-bottom {
   background-color: #5E4F4F;
+}
+
+.review-header {
+  color: #DDB9B9;
 }
