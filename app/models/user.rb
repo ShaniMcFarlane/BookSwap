@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :books, dependent: :destroy
   has_many :requests, dependent: :destroy
-  has_many :swaps, through: :requests
+  has_many :swaps
   has_many :messages
   has_one_attached :photo
   validates :first_name, :last_name, :location, presence: true

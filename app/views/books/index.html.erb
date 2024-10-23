@@ -1,40 +1,41 @@
 <div class="book-list-container">
-<h1 class="title-page-books">ready to swap?</h1>
-  <div class="search-bar">
-  <div class="search-type">
-    <%= form_with url: books_path, method: :get, class: "d-flex my-3" do %>
-      <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Type a keyword"
-        %>
-      <%= submit_tag "Search", name: "", class: "btn search-btn" %>
-    <% end %>
+  <h1 class="title-page-books">ready to swap?</h1>
+    <div class="search-bar">
+    <div class="search-type">
+      <%= form_with url: books_path, method: :get, class: "d-flex my-3" do %>
+        <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Type a keyword"
+          %>
+        <%= submit_tag "Search", name: "", class: "btn search-btn" %>
+      <% end %>
+    </div>
   </div>
-</div>
 
-<button type="button" class="map-icon" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  <img src="../app/assets/images/mappink.jpg" alt="Map Icon">
-</button>
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">BookMap</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div style="width: 100%; height: 300px;"
-          data-controller="map"
-          data-map-markers-value="<%= @markers.to_json %>"
-          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+  <div class="map-icon" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <%= image_tag("mappink.png", style: "width: 50px; height: 50px", alt: "Map Icon") %>
+  </div>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">BookMap</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div style="width: 100%; height: 300px;"
+            data-controller="map"
+            data-map-markers-value="<%= @markers.to_json %>"
+            data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
 
   <% @books.each do |book| %>
