@@ -4,6 +4,7 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message.swap = @swap
     @message.user = current_user
+
     if @message.save
       redirect_to swap_path(@swap), notice: 'Message sent.'
     else
