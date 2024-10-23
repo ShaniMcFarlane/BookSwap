@@ -40,23 +40,20 @@
     <div class="books-container">
        <% if current_user.books.any? %>
         <% @books.each do |book| %>
-
-            <hr class="line">
-      <div class="book-card">
-        <div class="card-body">
-          <h4 class="card-title"><%= book.title.downcase %></h4>
-            <p><%= book.author %></p>
-            <p><%= book.genre %></p>
-            <%= link_to '🗑️', book_path(book), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-        </div>
-        <%= cl_image_tag book.photo.key, alt: book.title, class: "card-image-top" if book.photo.key.present? %>
-      </div>
-  <% end %>
-    </div>
-
-      <% else %>
-        <p>You don't have any books in your library yet.</p>
+          <hr class="line">
+          <div class="book-card">
+            <div class="card-body">
+              <h4 class="card-title"><%= book.title.downcase %></h4>
+                <p><%= book.author %></p>
+                <%= link_to '🗑️', book_path(book), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+            </div>
+            <%= cl_image_tag book.photo.key, alt: book.title, class: "card-image-top" if book.photo.key.present? %>
+          </div>
       <% end %>
+    </div>
+    <% else %>
+      <p>You don't have any books in your library yet.</p>
+    <% end %>
     </div>
   </div>
 </div>
