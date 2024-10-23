@@ -60,10 +60,21 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
   end
 
+  # def destroy
+  #   @book = Book.find(params[:id])
+  #   @book.destroy
+  #   redirect_to books_path, status: :see_other
+  # end
+
   def destroy
     @book = Book.find(params[:id])
-    @book.destroy
-    redirect_to books_path, status: :see_other
+    if @book.user == current_user
+      @book.destroy
+      # redirect_to profile_path, status: :see_other
+      redirect_to profile_path, notice: "Book was successfully deleted."
+    else
+      redirect_to profile_path, alert: "Book was not deleted."
+    end
   end
 
   private
