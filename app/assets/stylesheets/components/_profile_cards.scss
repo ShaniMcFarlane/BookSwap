@@ -61,7 +61,6 @@
 .library-info {
   display: flex;
   justify-content: space-between;
-  padding: 20px;
   color:#DDB9B9;
 }
 
@@ -69,19 +68,19 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding-top: 20px;
-  margin-top: 20px;
-  margin-bottom: 20px;
   color: #DDB9B9
 }
 
 .profile-icon {
   border-radius: 50%;
-  width: 100px;
+  height: 90px;
+    object-fit: cover;
 }
 
 .swap-card {
   color:#DDB9B9;
+  text-align: center;
+  padding-top: 20px;
 }
 
 .profile-books-image {
