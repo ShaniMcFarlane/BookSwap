@@ -125,3 +125,26 @@
   font-weight: bold;
 }
 
+.nav-link {
+  color: #DDB9B9;
+  font-weight: bold;
+  border-radius: 15px;
+    border: 2px solid #DDB9B9;
+    background: #000000;
+}
+
+.nav-link.active {
+  color: #DDB9B9 !important;
+  font-weight: bold;
+  border-radius: 15px;
+    border: 2px solid #846868;
+    background: #000000;
+}
+
+.nav-link:hover, .nav-link:focus {
+  color: black;
+}
+
+.nav.nav-tabs {
+  border: none;
+}
