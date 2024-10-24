@@ -1,15 +1,17 @@
-<h2>Swap with <%= @swap.user.first_name %></h2>
+<div class="container">
+  <h2>Swap with <%= @swap.user.first_name %></h2>
 
-<p>
-  <strong><%= message.user.first_name %>:</strong> <%= message.content %>
-  <p><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></p>
-</p>
+  <p>
+    <strong><%= message.user.first_name %>:</strong> <%= message.content %>
+    <p><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></p>
+  </p>
 
-<div
-  id="message-<%= message.id %>"
-  class="message <%= message.user === user ? 'sent' : 'received' %>"
-  data-controller="message"
-  data-message-user-id-value="<%= message.user.id %>">
+  <div
+    id="message-<%= message.id %>"
+    class="message <%= message.user === user ? 'sent' : 'received' %>"
+    data-controller="message"
+    data-message-user-id-value="<%= message.user.id %>">
+  </div>
+
+  <%= turbo_stream_from "swap_#{@swap.id}_messages" %>
 </div>
-
-<%= turbo_stream_from "swap_#{@swap.id}_messages" %>

@@ -19,7 +19,6 @@
    <% @swaps_pending.each do |swap| %>
   <div class="swap-card">
     <h4>Swap with <%= swap.user == current_user ? swap.request.user.first_name : swap.user.first_name %></h4>
-    <%= swap.id %>
     <p><strong>My Book:</strong> <%= swap.book.title %></p>
     <p><strong>Requested Book:</strong> <%= swap.request.book.title %></p>
      <%= link_to "Message", swap_path(swap), class: "btn btn-outline-info btn-sm" %>
