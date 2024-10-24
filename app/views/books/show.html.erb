@@ -9,7 +9,7 @@
         <p><%= @book.publish_date %></p>
         <p><%= @book.genre %></p>
       </div>
-      <%= button_to "request", book_requests_path(@book), method: :post, class: "btn btn-outline-info" %>
+      <%= button_to "request", book_requests_path(@book), method: :post, id: "request-btn-large", class: "btn btn-outline-info btn-lg" %>
     </div>
   </div>
 
@@ -19,7 +19,7 @@
   <%= simple_form_for [@book, @review] do |f| %>
     <%= f.input :comment, placeholder: "leave a review...", required: true, label: false, input_html: { class: "review-form" } %>
     <%= f.input :rating, prompt: "rating (0..5)", as: :select, collection: 0..5, label: false, input_html: { class: "review-form" } %>
-    <%= f.submit "Submit", class: "btn btn-outline-info btn-sm", id: "custom-submit-button" %>
+    <%= f.submit "submit", class: "btn btn-outline-info", id: "custom-submit-button" %>
   <% end %>
 </div>
 

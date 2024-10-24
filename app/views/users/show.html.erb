@@ -30,9 +30,9 @@
         <%= cl_image_tag book.photo.key, alt: book.title, class: "card-image-top" if book.photo.key.present? %>
       </div>
             <% if current_user.requests_as_owner.where(user: @user).any? %>
-              <%= button_to "Swap", request_user_swaps_path(@request, @user), method: :post, params: { swap: { book_id: book.id } }, id: "custom-swap-button", class: "btn btn-outline-info" %>
+              <%= button_to "swap", request_user_swaps_path(@request, @user), method: :post, params: { swap: { book_id: book.id } }, id: "custom-swap-button", class: "btn btn-outline-info" %>
             <% else %>
-              <%= button_to "Request", book_requests_path(book), method: :post, params: { request: { book_id: book.id } }, id: "custom-swap-button", class: "btn btn-outline-info" %>
+              <%= button_to "request", book_requests_path(book), method: :post, params: { request: { book_id: book.id } }, id: "custom-swap-button", class: "btn btn-outline-info" %>
             <% end %>
     <% end %>
   <% else %>

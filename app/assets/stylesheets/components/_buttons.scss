@@ -1,5 +1,16 @@
 .btn.btn-outline-info {
-  margin: 0;
+  background-color: transparent;
+  border: #DDB9B9, solid;
+  border-radius: 20px;
+  // margin-top: 20px;
+  // margin-bottom: 20px;
+  color: #DDB9B9;
+}
+
+.btn:first-child:active {
+  color: inherit;
+  background-color: inherit;
+  border-color: inherit;
 }
 
 .btn.search-btn {
@@ -8,22 +19,22 @@
   justify-content: center;
   border-radius: 15px;
   border: 1px solid #846868;
-  background: rgba(114, 99, 99, 0.00);
+  // background: rgba(114, 99, 99, 0.00);
   font-size: 11px;
-  color: #DDB9B9;
+  // color: #DDB9B9;
 }
 
 #custom-search-button {
   margin: 0;
 }
 
-.btn.btn-outline-info:hover {
-  background-color: inherit;
-  color: inherit;
-  // border: inherit;
-  box-shadow: none;
-  outline: none;
-}
+// .btn.btn-outline-info:hover {
+//   background-color: inherit;
+//   color: inherit;
+//   // border: inherit;
+//   box-shadow: none;
+//   outline: none;
+// }
 
 #custom-submit-button {
   margin: 0;
@@ -41,4 +52,21 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+
+.profile-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.btn.btn-outline-info {
+  // color: #C5705D;
+  // border: #C5705D, solid;
+  border-radius: 20px;
+}
+
+#request-btn-large {
+  border-radius: 25px;
 }
