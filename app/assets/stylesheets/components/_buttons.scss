@@ -13,6 +13,14 @@
   border-color: inherit;
 }
 
+input::placeholder { /* Most modern browsers support this now. */
+  color:  #DDB9B9;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: pink;
+}
+
 .btn.search-btn {
   display: flex;
   text-align: center;
