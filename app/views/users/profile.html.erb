@@ -22,7 +22,7 @@
     <%= swap.id %>
     <p><strong>My Book:</strong> <%= swap.book.title %></p>
     <p><strong>Requested Book:</strong> <%= swap.request.book.title %></p>
-     <%= link_to "Message", swap_path(swap), class: "btn btn-info" %>
+     <%= link_to "Message", swap_path(swap), class: "btn btn-outline-info btn-sm" %>
      <%# <%= button_to "Swapped", swap_path(@swap), method: :patch, class: "btn btn-success", data: { confirm: "Are you sure you want to confirm this swap and update your libraries?" } %>
   </div>
   <% end %>
@@ -34,7 +34,7 @@
 
   <div class="library-container">
     <div class="library-info">
-      <h3>My Library</h3>
+      <h3>My library</h3>
 
     </div>
     <%= button_to "Add Book", new_book_path, method: :get, class: "btn btn-outline-info btn-sm" %>
@@ -42,11 +42,15 @@
        <% if current_user.books.any? %>
         <% @books.each do |book| %>
           <hr class="line">
+          <div class="delete-button">
+              <%= link_to raw('<i class="fa-solid fa-xmark" style="color: #d8e0d2;"></i>'), book_path(book), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+            </div>
           <div class="book-card">
+
             <div class="card-body">
               <h4 class="card-title"><%= book.title.downcase %></h4>
                 <p><%= book.author %></p>
-                <%= link_to '🗑️', book_path(book), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+
             </div>
             <%= cl_image_tag book.photo.key, alt: book.title, class: "card-image-top" if book.photo.key.present? %>
           </div>
