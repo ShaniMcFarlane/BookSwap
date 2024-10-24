@@ -7,10 +7,11 @@
     <% end %>
   <% end %>
 
-  <%= simple_form_for [@swap, @message] do |f| %>
-      <%= f.input :content, placeholder: "Let's swap books...", required: true %>
-      <%= f.submit "Send", class: "btn btn-primary" %>
-  <% end %>
+ <%= simple_form_for [@swap, @message] do |f| %>
+    <%= f.input :content, placeholder: "Let's swap books...", required: true %>
+    <%= f.submit "Send", class: "btn btn-outline-info btn-sm" %>
+<% end %>
+
 
 </div>
 <%# see all messages -> messages index %>
