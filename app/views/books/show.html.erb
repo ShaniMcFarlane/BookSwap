@@ -30,21 +30,27 @@
       <div class="review">
         <p class="review-comment"> <%= review.comment %></p>
 
+      <div class="rating-info">
         <div class="rating-name">
           <p><%= review.user.first_name %> </p>
         </div>
 
         <div class="rating-stars">
           <% review.rating.times do %>
-            <%= image_tag("pointed-star.png", alt: "Star", class: "star-icon") %>
+              <%= image_tag("pointed-star.png", alt: "Star", class: "star-icon") %>
           <% end %>
         </div>
 
-          <p class="rating-time"><%= review.created_at.strftime("%a %b %e") %></p>
-
         <% if current_user == review.user %>
-          <%= link_to 'Delete', book_review_path(@book, review), method: :delete, data: { confirm: "Are you sure?" } %>
+          <div class="delete-button">
+            <%= link_to raw('<i class="fa-solid fa-xmark" style="color: #d8e0d2;"></i>'), book_review_path(@book, review), method: :delete, data: { confirm: "Are you sure?" } %>
+          </div>
         <% end %>
+
+      </div>
+
+      <p class="rating-time"><%= review.created_at.strftime("%d %b %Y") %></p>
+
   </div>
     <% end %>
   <% else %>

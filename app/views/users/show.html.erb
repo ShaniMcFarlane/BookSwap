@@ -6,7 +6,7 @@
     <div class="profile-info">
       <h1><%= @user.first_name %> <%= @user.last_name %></h1>
       <p><%= @user.location %></p>
-      <%= button_to "Message", "#", method: :get, class: "btn btn-outline-info btn-sm" %>
+      <p>Books Swapped: <%= @user.swapped_books_count =%></p>
     </div>
   </div>
 
@@ -14,20 +14,25 @@
     <div class="library-info">
       <h3><%= @user.first_name %>'s Library</h3>
     </div>
+
     <div class="books-container">
       <% if @user.books.any? %>
         <% @user.books.each do |book| %>
+         <hr class="line">
           <div class="book-card">
-            <%= cl_image_tag book.photo.key, alt: book.title, class: "book-cover" if book.photo.key.present? %>
-            <h3><%= book.title %></h3>
-            <p><%= book.author %></p>
+
+            <div class="card-body">
+              <h4 class="card-title"> <%= book.title %></h4>
+                <p><%= book.author %></p>
+                </div>
+
+                <%= cl_image_tag book.photo.key, alt: book.title, class: "book-cover" if book.photo.key.present? %>
+              </div>
   <%# checking to see if there are any request between two users .any? %>
   <%# check if there are any requests .any? %>
   <%# when you click swap -> link to back to current users profile page - to see confirmed swap - that has a message button%>
               <% if current_user.requests_as_owner.where(user: @user).any? %>
              <%= button_to "Swap", request_user_swaps_path(@request, @user), method: :post, params: { swap: { book_id: book.id } }, class: "btn btn-outline-info" %>
-
-
               <%# <%= button_to "Swap", book_requests_path(book), method: :post, params: { request: { book_id: book.id } }, class: "btn btn-outline-info" %>
               <% else %>
                 <%= button_to "request", book_requests_path(book), method: :post, params: { request: { book_id: book.id } }, class: "btn btn-outline-info" %>
@@ -37,6 +42,7 @@
 
           </div>
         <% end %>
+        </div>
       <% else %>
         <p><%= @user.first_name %> hasn't added any books to their library yet.</p>
       <% end %>
