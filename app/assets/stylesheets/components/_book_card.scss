@@ -255,6 +255,26 @@ a:active {
   padding-top: 10px;
 }
 
+#new_review {
+  display: flex;
+  flex-direction: column;
+}
+
+.review-form {
+  width: 300px;
+  border: solid 1px #DDB9B9;
+  height: 38px;
+  border-radius: 25px;
+}
+
+#review_rating {
+  border: solid 1px #DDB9B9;
+  border-radius: 25px;
+  background-color: #413737;
+  color: #1b0e0e;
+  height: 38px;
+}
+
 .rating-name {
   margin: 0;
   display: flex;

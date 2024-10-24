@@ -14,20 +14,21 @@
   </div>
 
 
+<h3 class="review-header">what did you think?</h3>
 <div class="reviews-container">
   <%= simple_form_for [@book, @review] do |f| %>
-    <%= f.input :comment, placeholder: "Write a review...", required: true %>
-    <%= f.input :rating, as: :select, collection: 0..5, label: "Rating (0-5)" %>
-    <%= f.submit "Submit", class: "btn.btn-outline-info" %>
+    <%= f.input :comment, placeholder: "leave a review...", required: true, label: false, input_html: { class: "review-form" } %>
+    <%= f.input :rating, prompt: "rating (0..5)", as: :select, collection: 0..5, label: false, input_html: { class: "review-form" } %>
+    <%= f.submit "Submit", class: "btn btn-outline-info btn-sm", id: "custom-submit-button" %>
   <% end %>
 </div>
 
 
-  <h2 class="review-header">reviews</h2>
+  <h3 class="review-header">reviews</h3>
   <% if @book.reviews.any? %>
     <% @book.reviews.each do |review| %>
       <div class="review">
-        <p> <%= review.comment %></p>
+        <p class="review-comment"> <%= review.comment %></p>
 
         <div class="rating-name">
           <p><%= review.user.first_name %> </p>

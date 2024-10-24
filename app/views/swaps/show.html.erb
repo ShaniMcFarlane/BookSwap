@@ -1,18 +1,18 @@
-<h1>Swaps</h1>
+<div class="container">
+  <h1>Swaps</h1>
 
-
-<% if @swap.present? %>
-  <% @messages.each do |message| %>
-    <%= render "messages/message", message: message, user: current_user, swap: @swap %>
+  <% if @swap.present? %>
+    <% @messages.each do |message| %>
+      <%= render "messages/message", message: message, user: current_user, swap: @swap %>
+    <% end %>
   <% end %>
-<% end %>
 
- <%= simple_form_for [@swap, @message] do |f| %>
-    <%= f.input :content, placeholder: "Let's swap books...", required: true %>
-    <%= f.submit "Send", class: "btn btn-primary" %>
-<% end %>
+  <%= simple_form_for [@swap, @message] do |f| %>
+      <%= f.input :content, placeholder: "Let's swap books...", required: true %>
+      <%= f.submit "Send", class: "btn btn-primary" %>
+  <% end %>
 
-
+</div>
 <%# see all messages -> messages index %>
 <%# both the current user and other user can see thier messgaes -> if statment  %>
 
