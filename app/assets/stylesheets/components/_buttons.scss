@@ -1,0 +1,22 @@
+.btn.search-btn {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  border-radius: 15px;
+  border: 1px solid #846868;
+  background: rgba(114, 99, 99, 0.00);
+  font-size: 11px;
+  color: #DDB9B9;
+}
+
+#custom-search-button {
+  margin: 0;
+}
+
+.btn.btn-outline-info:hover {
+  background-color: inherit;
+  color: inherit;
+  // border: inherit;
+  box-shadow: none;
+  outline: none;
+}

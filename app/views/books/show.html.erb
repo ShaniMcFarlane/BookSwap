@@ -23,11 +23,23 @@
 </div>
 
 
-  <h2 class="review-header">Reviews</h2>
+  <h2 class="review-header">reviews</h2>
   <% if @book.reviews.any? %>
     <% @book.reviews.each do |review| %>
       <div class="review">
-        <p><strong><%= review.user.first_name %>:</strong> <%= review.comment %> <%= review.rating %></p>
+        <p> <%= review.comment %></p>
+
+        <div class="rating-name">
+          <p><%= review.user.first_name %> </p>
+        </div>
+
+        <div class="rating-stars">
+          <% review.rating.times do %>
+            <%= image_tag("pointed-star.png", alt: "Star", class: "star-icon") %>
+          <% end %>
+        </div>
+
+          <p class="rating-time"><%= review.created_at.strftime("%a %b %e") %></p>
 
         <% if current_user == review.user %>
           <%= link_to 'Delete', book_review_path(@book, review), method: :delete, data: { confirm: "Are you sure?" } %>
