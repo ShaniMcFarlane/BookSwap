@@ -20,8 +20,8 @@ User.destroy_all
 
 users = []
 
-user1 = User.new(first_name: "Ava", last_name: "Taylor", location: "Hackney, London", email: "ava.taylor@yahoo.com", password: '123123', password_confirmation: '123123')
-file1 = URI.parse("https://st3.depositphotos.com/1011434/13157/i/450/depositphotos_131572502-stock-photo-happy-woman-smiling.jpg").open
+user1 = User.new(first_name: "Ashley", last_name: "George", location: "Camberwell, London", email: "ava.taylor@yahoo.com", password: '123123', password_confirmation: '123123')
+file1 = URI.parse("https://res.cloudinary.com/debmksc1x/image/upload/v1729780777/Screenshot_2024-10-24_at_15.35.38_wdwym6.png").open
 user1.photo.attach(io: file1, filename: "ava.jpg", content_type: "image/jpg")
 user1.save
 
@@ -48,8 +48,8 @@ user4.save
 
 users << user4
 
-user5 = User.new(first_name: "Sophia", last_name: "Williams", location: "Kensington, London", email: "sophia.williams@icloud.com", password: '123123', password_confirmation: '123123')
-file5 = URI.parse("https://orlandosydney.com/wp-content/uploads/2023/04/Gradient-Background-Female-Headshots-Sydney.-Corporate-Photos-By-Orlandosydney.com-202300229.jpg").open
+user5 = User.new(first_name: "Shani", last_name: "McFarlane", location: "Hackney, London", email: "sophia.williams@icloud.com", password: '123123', password_confirmation: '123123')
+file5 = URI.parse("https://res.cloudinary.com/debmksc1x/image/upload/v1729780769/Screenshot_2024-10-24_at_15.35.22_bb7amu.png").open
 user5.photo.attach(io: file5, filename: "sophia.jpg", content_type: "image/jpg")
 user5.save
 
