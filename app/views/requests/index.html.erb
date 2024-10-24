@@ -9,7 +9,7 @@
     <div class="request-book-info">
 
       <div class="request-text">
-        <p><%= request.user.first_name %> want's </p>
+        <p><%= request.user.first_name %> wants </p>
         <p><%= request.book.title.downcase %></p>
       </div>
 
@@ -18,7 +18,9 @@
 
         <div class="request-options">
           <%= link_to "choose a book",  request_user_path(request, request.user), class: "btn btn-outline-info" %>
-          <%= link_to "decline", request_path(request), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-outline-info" %>
+          <div class="delete-button">
+              <%= link_to raw('<i class="fa-solid fa-xmark" style="color: #d8e0d2;"></i>'), "#", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+            </div>
         </div>
 
       </div>
@@ -36,7 +38,7 @@
 
           <div class="request-book-info">
 
-            <div class="request-text">
+            <div class="request-info">
               <p><%= request.book.title.downcase %></p>
               <p><%= request.book.author %></p>
             </div>
@@ -46,7 +48,9 @@
 
           <div class="request-options">
             <%= link_to "details", book_path(request.book), class: "btn btn-outline-info" %>
-            <%= link_to 'cancel', request_path(request), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-outline-info" %>
+            <div class="delete-button">
+              <%= link_to raw('<i class="fa-solid fa-xmark" style="color: #d8e0d2;"></i>'), "#", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+            </div>
           </div>
 
         </div>
