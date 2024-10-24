@@ -160,6 +160,7 @@ a:active {
   max-width: 100%;
   margin-left: 10px;
   margin-right: 10px;
+  margin-bottom: 20px;
 }
 
 .btn.btn-outline-info {
@@ -210,11 +211,6 @@ a:active {
   background-color: #5E4F4F;
 }
 
-.review-header {
-  color: #DDB9B9;
-  margin-left: 20px;
-}
-
 .book-details {
   text-align: center;
 }
@@ -223,4 +219,16 @@ a:active {
   color: #DDB9B9;
   text-align: center;
   margin-bottom: 30px;
+}
+
+.card-body-user-show {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.user-card-info {
+  display: flex;
+  flex-direction: column;
 }

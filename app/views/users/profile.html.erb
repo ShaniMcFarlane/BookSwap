@@ -32,11 +32,12 @@
 
 
   <div class="library-container">
+
     <div class="library-info">
       <h3>My library</h3>
-
+      <%= button_to "Add Book", new_book_path, method: :get, class: "btn btn-outline-info btn-sm" %>
     </div>
-    <%= button_to "Add Book", new_book_path, method: :get, class: "btn btn-outline-info btn-sm" %>
+
     <div class="books-container">
        <% if current_user.books.any? %>
         <% @books.each do |book| %>

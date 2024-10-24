@@ -1,3 +1,7 @@
+.btn.btn-outline-info {
+  margin: 0;
+}
+
 .btn.search-btn {
   display: flex;
   text-align: center;
@@ -23,4 +27,18 @@
 
 #custom-submit-button {
   margin: 0;
+}
+
+#custom-swap-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.button_to {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
